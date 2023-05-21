@@ -1,0 +1,88 @@
+.city {
+    margin: 0;
+    background-image: linear-gradient(108.54deg, rgb(220, 255, 203), rgb(225, 255, 237), rgb(184, 229, 255));
+    height: 560px;
+    border: 1px solid #666;
+    position: relative;
+    color: #666;
+    font-family: Helvetica Neue, arial, sans-serif;
+    font-size: 14px;
+    line-height: 14px;
+    width: 1528px;
+}
+
+.background-image {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.awa1 {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: -107px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.image-container {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.5);
+    mix-blend-mode: lighten;
+}
+
+.awa2 {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: -107px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.image-container-small {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.2);
+    mix-blend-mode: lighten;
+}
+
+.awa3 {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: -107px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.content {
+    padding: 40px;
+}
+
+.inner {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.catchcopy {
+    font-size: 18px;
+    line-height: 1.5;
+    text-align: justify;
+}

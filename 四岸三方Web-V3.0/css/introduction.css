@@ -1,0 +1,162 @@
+/* 这是CSS部分 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .centerview {
+    padding: 100px;
+    text-align: left;
+    color: white;
+    font-family: futura-pt, noto-sans-cjk-jp, sans-serif;
+    font-size: 15px;
+  }
+  
+  .page-title-bar {
+    height: 55px;
+    overflow: hidden;
+  }
+  
+  .page-title {
+    float: left;
+    line-height: 55px;
+    font-size: 55px;
+  }
+  
+  .download-partition {
+    min-height: 680px;
+    padding-right: 475px;
+  }
+  
+  .download-content {
+    height: 825.852px;
+  }
+  
+  .read.post-body {
+    font-size: 18px;
+    line-height: 1.6em;
+    padding-top: 48px;
+  }
+  
+  .viewer-area {
+    position: absolute;
+    left: calc(100% - (443px + (100px *2)));
+    top: calc(100% - (664px + (100px *2)));
+  }
+  
+  .control {
+    height: 20px;
+    margin-top: 48px;
+  }
+  
+  .slider {
+    background-color: rgb(204,43,100);
+  }
+  
+  .button {
+     height:0; 
+  }
+  
+  .ui-slider-handle {
+     background-color:white; 
+     display:block; 
+     position:absolute; 
+     left:-20px; 
+     bottom:-8px; 
+     width:40px; 
+     height:40px; 
+     border-radius:100%; 
+  }
+  
+  .attention {
+     margin-top:64px; 
+     font-size:15px; 
+     line-height:24px; 
+  }
+  
+  .label-inner {
+     display:block; 
+     margin-left:-20%; 
+     margin-right:-20%; 
+     padding-left:-20%; 
+     padding-right:-20%; 
+     transform-origin:center center; 
+  }
+  
+  .text.post-body {
+     font-size:15px; 
+     line-height:24px; 
+     margin-top:32px; 
+  }
+  
+  .fwb {
+     font-weight:bold; 
+  }
+  
+  .agree-area {
+     margin-top:32px; 
+  }
+  
+  .agree-link {
+     color:#fcff00; 
+     text-decoration:none; 
+  }
+  
+  .common-button.down.disabled {
+     margin-top:32px; 
+     opacity:.2; 
+     pointer-events:none; 
+  }
+  
+  .mouseover-target {
+     display:inline-block; 
+     padding:.625em .75em; /*10/16=0.625em,12/16=0.75em*/
+     border:solid white .125em /*2/16=0.125em*/;  
+  }
+  
+  /* 这是添加渐变背景和泡泡效果的部分 */
+  .download-partition {
+  /* 设置一个从左上到右下的线性渐变背景，使用给定的颜色和角度 */
+  background-image:
+  /* 设置一个从左上到右下的线性渐变背景，使用给定的颜色和角度 */
+  linear-gradient(108.54deg, rgb(220,255,203), rgb(225,255,237), rgb(184,229,255));
+  /* 设置多个径向渐变背景，使用透明度来创建泡泡效果 */
+  background-image:
+  /* 设置第一个径向渐变背景，从白色到透明 */
+  radial-gradient(circle at center, white, transparent),
+  /* 设置第二个径向渐变背景，从白色到透明 */
+  radial-gradient(circle at center, white, transparent),
+  /* 设置第三个径向渐变背景，从白色到透明 */
+  radial-gradient(circle at center, white, transparent),
+  /* 设置第四个径向渐变背景，从白色到透明 */
+  radial-gradient(circle at center, white, transparent),
+  /* 设置第五个径向渐变背景，从白色到透明 */
+  radial-gradient(circle at center, white, transparent),
+  /* 设置第六个径向渐变背景，从白色到透明 */
+  radial-gradient(circle at center, white, transparent),
+  /* 设置第七个径向渐变背景，从白色到透明 */
+  radial-gradient(circle at center, white, transparent),
+  /* 设置线性渐变背景，作为底层 */
+  linear-gradient(108.54deg, rgb(220,255,203), rgb(225,255,237), rgb(184,229,255));
+  /* 设置每个径向渐变背景的位置和大小，使用百分比或像素值 */
+  background-position:
+  /* 第一个径向渐变背景的位置和大小 */
+  10% 10%, 100px 100px,
+  /* 第二个径向渐变背景的位置和大小 */
+  20% 20%, 150px 150px,
+  /* 第三个径向渐变背景的位置和大小 */
+  30% 30%, 200px 200px,
+  /* 第四个径向渐变背景的位置和大小 */
+  40% 40%, 250px 250px,
+  /* 第五个径向渐变背景的位置和大小 */
+  50% 50%, 300px 300px,
+  /* 第六个径向渐变背景的位置和大小 */
+  60% 60%, 350px 350px,
+  /* 第七个径向渐变背景的位置和大小 */
+  70% 70%, 400px 400px;
+  /* 线性渐变背景的位置和大小，默认为整个元素区域 */
+  /* background-size:  */
+  /* 每个径向渐变背景的重复方式，设置为no-repeat表示不重复 */
+  background-repeat: no-repeat;
+}

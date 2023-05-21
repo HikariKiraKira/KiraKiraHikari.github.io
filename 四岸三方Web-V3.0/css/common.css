@@ -1,0 +1,1311 @@
+
+/* 头部模块 start*/
+
+/* 定义头部模块 */
+.header {
+  position: fixed;
+  z-index: 998;
+  width: 100%;
+  min-width: 1280px;
+  height: 66px;
+  background-color: rgba(17, 17, 17, 0.75);
+  box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.35);
+}
+
+/* 头部模块顶部的小滑块 */
+.piece{
+ position: absolute; /* 绝对定位 */
+ z-index: 1; /* 层级为1 */
+ transition: all 0.3s ease-in-out 0s; /* 过渡效果 */
+ background-color: rgb(105, 224, 255); /* 背景颜色 */
+ height: 5px; /* 高度为5px */
+ left: 354px; /* 距离左边为354px */
+ width: 40px; /* 宽度为40px */
+ top: 0px; /* 距离顶部为0px */
+}
+.header_logo {
+ float: left; /* 左浮动 */
+ margin-left: 8px; /* 左外边距为8px */
+ margin-right: 0px; /* 右外边距为0px */
+ width: 317px; /* 宽度为317px */
+ height: 100%; /* 高度为100% */
+ background: transparent url(../images/header_logo.png) no-repeat; /* 背景图片不重复 */
+ cursor: pointer; /* 鼠标样式为指针 */
+ font-size: 0; /* 字体大小为0 */
+}
+.header_navbar {
+ display: inline-block; /* 行内块级元素 */
+ list-style-type: none; /* 列表样式为无序列表 */
+}
+.header_navitem {
+ position: relative; /* 相对定位 */
+ float: left; /* 左浮动 */
+ width: auto; /* 宽度自适应 */
+ height: 66px; /* 高度为66px */
+ margin: 0 30px; /* 上下外边距为0，左右外边距为30px */
+ line-height: 66px; /* 行高为66px，实现垂直居中 */
+ font-size: 17px; /* 字体大小为17px */
+ color: #ccc; /* 字体颜色为灰色 */
+ text-align: center; /* 文本居中对齐 */
+ cursor: pointer; /* 鼠标样式为指针 */
+}
+.header_navitem:hover, .header_navitem_focus {
+ text-shadow: 0 0 10px #69e0ff, 0 0 20px #69e0ff, 0 0 40px #69e0ff; /* 文本阴影效果，颜色为蓝色 */
+ color: #fff; /* 文本颜色为白色 */
+}
+
+
+/* 使用target标签对不同的块进行标记 */
+.header_navitem[target=first]:hover ~ .piece{
+    left: 477px;
+}
+.header_navitem[target=second]:hover ~ .piece{
+    left: 596px;
+}
+.header_navitem[target=third]:hover ~ .piece{
+    left: 740px;
+}
+.header_navitem[target=fourth]:hover ~ .piece{
+    left: 750px;
+}
+.header_navitem[target=fifth]:hover ~ .piece{
+    left: 849px;
+}
+
+/* 登录按键 */
+.header_login {
+    display: flex;
+    justify-content: flex-end;
+    position: absolute;
+    top: 0;
+    right: 30px;
+    height: 100%;
+    min-width: 200px;
+    white-space: nowrap;
+}
+.header_login .login_btn {
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  border: 0;
+  outline: none;
+  background: none;
+  font-size: 17px;
+  color: #ccc;
+}
+.header_login .login_btn #user{
+  margin-left: 18px;
+  font-size: 27px;
+}
+.header_login .login_btn:hover {
+  color: #fff;
+}
+
+/* 音乐播放控件 */
+.audio_controller {
+  position: fixed;
+  z-index: 999;
+  top: 18px;
+  left: 70px;
+}
+.audio_controller_on,
+.audio_controller_off {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+/* 头部模块 end*/
+
+/* 内容模块 start*/
+.home {
+  min-width: 1280px;
+  background-color: rgba(17, 17, 17, 0.75);
+}
+.home .poster {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  
+  max-height: 669px; 
+  /* 修改这个解决了缩放视频 隔阂问题 */
+  overflow: hidden;
+}
+.home .poster video {
+  -o-object-fit: cover;
+  object-fit: cover;
+  opacity: 1;
+  width: 1920px;
+  height: 1080px;
+}
+.home .poster #poster_wrap {
+  display: flex;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 1000;
+  min-width: 1280px;
+  justify-content: center;
+  align-items: center;
+  background: #fcf9fe;
+}
+.home .poster .poster_bg {
+  width: 100%;
+  object-fit: cover;
+}
+.home .poster_sign {
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  box-sizing: border-box;
+}
+
+/* 视频按钮 */
+.home .poster_video {
+  position: relative;
+  display: block;
+  margin: 14px auto;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 0;
+  background: #fff;
+  
+  /* font-size: 0; */
+  cursor: pointer;
+  outline: none;
+  transition: background 0.25s linear;
+}
+.home .poster_video:hover {
+  background: transparent;
+}
+.home .poster_video_entry {
+  width: 356px;
+  height: 76px;
+  background: url(../images/download.png) no-repeat center center;
+  margin-bottom: 20px;
+}
+.home .poster_video::before {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  width: 28px;
+  height: 28px;
+  
+  /* 使用平移调整到到按钮的中心位置 */
+  transform: translate(-50%, -50%);
+  background: url(../images/play.png) no-repeat;
+  background-position: center top;
+}
+.home .poster_video:hover::before {
+  background: url(../images/play.png) no-repeat;
+  background-position: center bottom;
+}
+
+/* 游戏下载部分 */
+.poster_download {
+  
+  /* flex-shrink: 0; */
+  margin-bottom: 20px;
+  height: 143px;
+}
+.poster_download_frame {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  width: 643px;
+  height: 100%;
+  padding: 10px;
+  background: url(../images/download_frame.png) center no-repeat;
+}
+.poster_download_frame .poster_download_frame_btn {
+  display: block;
+  cursor: pointer;
+  
+  /* flex-shrink: 0; */
+}
+.poster_download_frame .poster_download_frame_btn_lg {
+  width: 164px;
+  height: 123px;
+  background-image: url(../images/pc_first.png);
+}
+.poster_download_frame_btn_lg:hover{
+  background-image: url(../images/pc_last.png);
+}
+.poster_download_frame .poster_download_frame_group {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.poster_download_frame .poster_download_frame_group_ios {
+  width: 176px;
+  height: 60px;
+  background-image: url(../images/ios_first.png);
+}
+.poster_download_frame_group_ios:hover{
+  background-image: url(../images/ios_last.png);
+}
+.poster_download_frame .poster_download_frame_group_android {
+  width: 176px;
+  height: 60px;
+  background-image: url(../images/android_first.png);
+}
+.poster_download_frame_group_android:hover{
+  background-image: url(../images/android_last.png);
+}
+.poster_download_frame .poster_download_frame_group_taptap {
+  width: 176px;
+  height: 60px;
+  background-image: url(../images/taptap_first.png);
+}
+.poster_download_frame_group_taptap:hover{
+  background-image: url(../images/taptap_last.png);
+}
+.poster_download_frame .poster_download_frame_group_ps4 {
+  width: 176px;
+  height: 60px;
+  background-image: url(../images/ps4_first.png);
+}
+.poster_download_frame_group_ps4:hover{
+  background-image: url(../images/ps4_last.png);
+}
+.poster_download_frame .poster_download_qr {
+  position: relative;
+  align-self: flex-start;
+  width: 96px;
+  height: 100%;
+}
+.poster_download_qr_icon {
+  position: absolute;
+  left: 50%;
+  top: 33px;
+  transform: translateX(-50%);
+  z-index: 1;
+  width: 30px;
+  height: 30px;
+  border: 2px solid #475e7d;
+  border-radius: 4px;
+}
+.poster_download_qr_code {
+  position: absolute;
+  width: 100%;
+  display: block;
+}
+.poster_download_qr_text {
+  text-align: center;
+  font-size: 16px;
+  color: black;
+  margin-top: 99px;
+}
+
+/* 第一张海报底部的小箭头 */
+.home .poster_arrows {
+  position: relative;
+  margin-bottom: 12px;
+  width: 25px;
+}
+@keyframes arrow
+{
+  50% {
+    opacity: 0;
+  }
+}
+.home .poster_arrow {
+  width: 100%;
+  height: 15px;
+  background-image: url(../images/poster_arrow.png);
+  background-repeat: no-repeat;
+  background-position: center 0;
+  background-color: transparent;
+  background-size: auto;
+  animation-name: arrow;
+  animation-duration: 1.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+.home .poster_arrow_1 {
+  top: 0;
+  animation-delay: 0s;
+}
+.home .poster_arrow_2 {
+  top: 12px;
+  animation-delay: 0.5s;
+}
+.home .poster_arrow_3 {
+  top: 24px;
+  animation-delay: 1s;
+}
+
+/* 第二张海报(新闻模块) */
+
+/* 新闻标题 */
+.home .news {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 910px;
+  background: url(../image/newsbg.png) no-repeat center/cover;
+  color: #fff;
+}
+.home .news h3 {
+  position: relative;
+  margin: 183px auto 60px;
+  font-size: 50px;
+  font-weight: 400;
+  text-align: center;
+}
+.home .news h3::before, .home .news h3::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 385px;
+  height: 14px;
+  background: url(../images/news_ba.png) no-repeat center/cover;
+}
+.home .news h3::before {
+  left: 0;
+  transform: translate(calc(-100% - 32px), -50%);
+}
+.home .news h3::after {
+  right: 0;
+  transform: translate(calc(100% + 32px), -50%) rotateY(180deg);
+}
+
+/* 新闻内容 */
+.home .news_main {
+  display: flex;
+  justify-content: center;
+  height: 400px;
+  margin: 0 auto;
+}
+
+/* 轮播图 start */
+.home .news_swiper, .home .news_content {
+  position: relative;
+  width: 640px;
+  margin: 0;
+  background: rgba(38, 18, 12, 0.62);
+}
+.swiper-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-transition-property: -webkit-transform;
+  transition-property: -webkit-transform;
+  -o-transition-property: transform;
+  transition-property: transform;
+  transition-property: transform, -webkit-transform;
+  transition-property: transform,-webkit-transform;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+  animation-name: photos;
+  animation: photos 16s linear infinite;
+}
+@keyframes photos
+{ 
+  0% {
+    transform: translate3d(-640px, 0px, 0px);
+  }
+  23% {
+    transform: translate3d(-640px, 0px, 0px);
+  }
+  25% {
+    transform: translate3d(-1280px, 0px, 0px);
+  }
+  48% {
+    transform: translate3d(-1280px, 0px, 0px);
+  }
+  50% {
+    transform: translate3d(-1920px, 0px, 0px);
+  }
+  73% {
+    transform: translate3d(-1920px, 0px, 0px);
+  }
+  75% {
+    transform: translate3d(-2560px, 0px, 0px);
+  }
+  98% {
+    transform: translate3d(-2560px, 0px, 0px);
+  }
+  100% {
+    transform: translate3d(-640px, 0px, 0px);
+  }
+}
+.swiper-slide {
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  -webkit-transition-property: -webkit-transform;
+  transition-property: -webkit-transform;
+  -o-transition-property: transform;
+  transition-property: transform;
+  transition-property: transform, -webkit-transform;
+  transition-property: transform,-webkit-transform;
+}
+.swiper-container {
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  overflow: hidden;
+  list-style: none;
+  padding: 0;
+  z-index: 1;
+}
+.home .news_link {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+.home .news_banner {
+  width: 100%;
+  height: 100%;
+  
+  /* -o-object-fit: cover; */
+  object-fit: cover;
+}
+.home .news_pager {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.swiper-pagination-bullets{
+  bottom: 10px;
+  left: 0;
+  width: 100%;
+}
+
+/* .swiper-pagination-bullet_first {
+  width: 18px;
+  height: 18px;
+  margin: 0 4px;
+  background-color: #fff;
+  border-radius: 50%;
+  border: solid 2px rgba(255, 255, 255, 0.3);
+  box-sizing: border-box;
+  box-shadow: 0px 0px 12px 0px rgba(17, 17, 17, 0.3);
+  opacity: 1;
+} */
+.swiper-pagination-bullet {
+  width: 18px;
+  height: 18px;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  border: solid 2px rgba(255, 255, 255, 0.3);
+  box-sizing: border-box;
+  box-shadow: 0px 0px 12px 0px rgba(17, 17, 17, 0.3);
+  opacity: 1;
+  animation: bullet 16s linear infinite;
+}
+.swiper-pagination-bullets .swiper-pagination-bullet {
+  margin: 0 4px;
+}
+.swiper-pagination {
+  position: absolute;
+  text-align: center;
+  -webkit-transition: .3s opacity;
+  -o-transition: .3s opacity;
+  transition: .3s opacity;
+  -webkit-transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0);
+  z-index: 10;
+}
+@keyframes bullet
+{ 
+  0% {
+    background-color: #fff;
+  }
+  24.9% {
+    background-color: #fff;
+  }
+  25%{
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+}
+.bullet_first{
+   animation-delay: 0s;
+}
+.bullet_second{
+  animation-delay: 4s;
+}
+.bullet_third{
+  animation-delay: 8s;
+}
+.bullet_fourth{
+  animation-delay: 12s;
+}
+
+/* 轮播图 end */
+
+/* 新闻导航栏 start */
+.home .news_tab_list {
+  display: flex;
+  align-items: flex-start;
+  width: 592px;
+  margin: 35px auto 0;
+  border-bottom: 3px solid rgba(255, 255, 255, 0.1);
+}
+.home .news_tab_item--active {
+    color: #ffd49f;
+}
+.home .news_tab_item {
+    position: relative;
+    padding: 0 19px 12px;
+    font-size: 18px;
+    text-align: center;
+    cursor: pointer;
+}
+.home .news_tab_item--active::after {
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  display: block;
+  content: '';
+  width: 100%;
+  height: 3px;
+  background: #ffd49f;
+}
+
+/* 这是一个 CSS 样式表，以 
+/* 开始，以 */ 结束 */
+:root {
+  --color-white: #fff; 
+  /* 这是一个变量，用于定义白色 */
+  --color-orange: #ffd49f; 
+  /* 这是一个变量，用于定义橙色 */
+  --color-gray: #f0f0f0; 
+  /* 这是一个变量，用于定义灰色 */
+}
+.news {
+  font-size: 16px; 
+  /* 这是一个属性，用于设置新闻模块的基准字体大小为 16 像素 */
+}
+.news_tab_list {
+  display: flex; 
+  /* 这是一个属性，用于设置元素的显示方式为弹性盒子(flex)，可以让子元素在一行内排列 */
+  list-style: none; 
+  /* 这是一个属性，用于取消列表元素的默认样式(如项目符号) */
+  margin: 2.1875rem auto 0; 
+  /* 这是一个属性，用于设置元素的外边距为上 35 像素(2.1875rem)、左右自动、下 0 像素 */
+  border-bottom: 0.1875rem solid rgba(255, 255, 255, 0.1); 
+  /* 这是一个属性，用于设置元素的边框宽度为下 3 像素(0.1875rem)、样式为实线(solid)、颜色为半透明白色(rgba(255, 255, 255, 0.1)) */
+}
+.news_tab_item--active {
+  color: var(--color-orange); 
+  /* 这是一个属性，用于设置元素的字体颜色为橙色(var(--color-orange))，引用了之前定义的变量 */
+}
+.news_tab_item {
+  position: relative;
+  padding: 0 1.1875rem 0.75rem; 
+  /* 这是一个属性，用于设置元素的内边距为上下 0 像素、左右 19 像素(1.1875rem)、下 12 像素(0.75rem) */
+  text-align: center; 
+  /* 这是一个属性，用于设置元素的文本对齐方式为居中(center) */
+  cursor: pointer; 
+  /* 这是一个属性，用于设置元素的鼠标指针样式为手形(pointer) */
+}
+.news_tab_item--active::after {
+ position: absolute;
+ left: 0;
+ bottom: -0.1875rem; 
+ /* 这是一个属性，用于设置元素相对于父元素底部的偏移量为 -3 像素(0.1875rem)*/
+ display: block;
+ content: '';
+ width: 100%;
+ height: 0.1875rem; 
+ /* 这是一个属性，用于设置元素的高度为 3 像素(0.1875rem)*/
+ background: var(--color-orange); 
+ /* 这是一个属性，用于设置元素的背景颜色为橙色(var(--color-orange))，引用了之前定义的变量 */
+}
+.news_list {
+ width:37rem; 
+ /* 这是一个属性，用于设置元素的宽度为592像素(37rem)*/
+ margin: 0 auto;
+}
+.news_item {
+ position: relative;
+ display: flex;
+ align-items: center;
+ width:100%;
+ height:3.125rem; 
+ /* 这是一个属性，用于设置元素的高度为50像素(3.125rem)*/
+ border-bottom:2px solid rgba(255,255,255,0.08);
+ box-sizing: content-box;
+ font-size:1em; 
+ /* 这是一个属性，用于设置元素的字体大小为1倍基准字体大小(1em)*/
+ color: var(--color-white); 
+ /* 这是一个属性，用于设置元素的字体颜色为白色(var(--color-white))，引用了之前定义的变量 */
+}
+.news_item:hover {
+ cursor:pointer;
+ background-color:#ffd49f10;
+ /* 这是一个属性，用于设置元素在鼠标悬停时的背景颜色为半透明橙色(#ffd49f10)，其中最后两位表示透明度 */
+}
+.news_title {
+ height:1.25em;
+ /* 这是一个属性，用于设置元素的高度为20像素(1.25em)*/
+ line-height:1.25em;
+ /* 这是一个属性，用于设置元素的行高为20像素(1.25em)*/
+ padding-left:.6875em;
+ /* 这是一个属性，用于设置元素左侧内边距为11像素(0.6875em)*/
+}
+
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.home .news_date {
+  position: absolute;
+  
+  /* top: 0; */
+  right: 11px;
+  color: rgba(255, 255, 255, 0.35);
+  font-size: 14px;
+  height: 50px;
+  line-height: 50px;
+}
+.home .news_more {
+  position: absolute;
+  right: 33px;
+  bottom: 30px;
+  height: 22px;
+  line-height: 22px;
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.75);
+  cursor: pointer;
+  padding-left: 38px;
+  background: url(../images/zixun.png) no-repeat left;
+}
+.news_more:hover {
+  color:rgba(255, 212, 159, 0.75);
+  background: url(../images/zixun_hover.png) no-repeat left;
+} 
+
+/* 新闻导航栏 end */
+
+/* city模块start */
+
+/* 设置 .home .city 这个类的宽度为 100% */
+.home .city {
+  width: 100%;
+ }
+ 
+ 
+ /* 设置 .home .city_list 这个类的溢出内容为隐藏 */
+ .home .city_list {
+  overflow: hidden;
+ }
+ 
+ 
+ /* 设置 .home .city_list-item 这个类的样式 */
+ .home .city_list-item {
+  position: relative; 
+  /* 相对定位 */
+  height: 260px; 
+  /* 高度为 260px */
+  background: center no-repeat; 
+  /* 背景图居中，不重复 */
+  background-size: 100% 100%;
+  /* 背景图大小为覆盖整个元素 */
+  cursor: pointer; 
+  /* 鼠标指针为手型 */
+  overflow: hidden; 
+  /* 溢出内容为隐藏 */
+ }
+ 
+ 
+ /* 设置 .home .city_list-item 这个类的伪元素 ::before 的样式 */
+ .home .city_list-item::before {
+  position: absolute; 
+  /* 绝对定位 */
+  z-index: 2; 
+  /* 层叠顺序为 2 */
+  top: 0; 
+  /* 距离顶部为 0 */
+  left: 0; 
+  /* 距离左边为 0 */
+  display: block; 
+  /* 显示为块级元素 */
+  content: ''; 
+  /* 内容为空 */
+  width: 100%; 
+  /* 宽度为 100% */
+  height: 100%; 
+  /* 高度为 100% */
+  background: rgba(0, 0, 0, 0.4); 
+  /* 背景色为半透明的黑色 */
+ }
+ 
+ 
+ /* 设置 .home .city_list-item 这个类在鼠标悬停时的伪元素 ::before 的样式 */
+ .home .city_list-item:hover::before {
+  background: rgba(0, 0, 0, 0.2); 
+  /* 背景色为更透明的黑色 */
+ }
+ 
+ 
+ /* 设置 .home .city_list-bg 这个类的样式 */
+ .home .city_list-bg {
+  position: absolute; 
+  /* 绝对定位 */
+  top: 0; 
+  /* 距离顶部为 0 */
+  left: 0; 
+  /* 距离左边为 0 */
+  display: block; 
+  /* 显示为块级元素 */
+  width: 100%; 
+  /* 宽度为 100% */
+  height: 100%; 
+  /* 高度为 100% */
+  background: center no-repeat; 
+  /* 背景图居中，不重复 */
+  /* background-size: contain; 或者 cover */
+  background-size: 100% 100%;
+  /* 背景图大小为覆盖整个元素*/
+  transition: transform 0.4s ease-out; 
+  /* 过渡效果为变换，持续时间为 0.4 秒，缓出效果，无延迟时间*/
+ }
+ 
+ 
+ /* 设置 .home .city_list-item 这个类在鼠标悬停时的子元素 .city_list-bg 的样式 */
+ .home .city_list-item:hover .city_list-bg {
+  transform: scale(1.2); 
+  /* 变换效果为放大到原来的1.05倍 */
+ }
+ 
+ 
+ /* 设置 .home .city_list-item 这个类的子元素 p 和 a 的样式 */
+ .home .city_list-item p, .home .city_list-item a {
+  display: inline-block; 
+  /* 显示为内联块级元素 */
+  position: relative; 
+  /* 相对定位 */
+  z-index: 3; 
+  /* 层叠顺序为3 */
+  font-size: 36px; 
+  /* 字体大小为36px */
+  color: #fff; 
+  /* 字体颜色为白色 */
+  line-height: 260px; 
+  /* 行高为260px，与高度相同，使文字垂直居中*/
+  width: 100%; 
+  /* 宽度为100%*/
+  height: 260px; 
+  /* 高度为260px*/
+  background-image:url(../images/city_decoration.png);
+  /*背景图是一个装饰图片*/
+  background-position:center;
+  /*背景图居中*/
+  background-size: 100% 100%;
+  background-repeat:no-repeat;
+  /*背景图不重复*/
+  text-align:center;
+  /*文字水平居中*/
+  text-shadow:0px 2px 6px rgba(0,0,0,0.2);
+  /*文字阴影效果*/
+  overflow:hidden;
+  /*溢出内容隐藏*/
+ }
+ 
+ 
+ /* 设置 .home .city_list-item 这个类的子元素 p 的伪元素 ::after 的样式*/
+ .home.city_list-item p::after {
+  position:absolute;
+  /*绝对定位*/
+  bottom:91px;
+  /*距离底部91px*/
+  left:50%;
+  /*距离左边50%，即居中*/
+  transform:translateX(50%);
+  /*水平方向向左移动自身宽度的一半，即居中*/
+  display:block;
+  /*显示为块级元素*/
+  content:'';
+  /*内容为空*/
+  width:210 px;
+  /*宽度210px*/
+  height:10 px;
+  /*高度10px*/
+  background-image:url(../images/city_bottom.png);
+  /*背景图是一个底部图片*/ 
+  background-position:center;
+  /*背景图居中*/ 
+  background-size: 100% 100%;
+  background-repeat:no-repeat;
+  /*背景图不重复*/ 
+  background-size:210px 10px;
+  /*背景图大小与自身相同*/ 
+  opacity:0;
+  /*透明度是零，即不可见*/
+  transition:opacity 0.4s ease-out;
+  /*过渡效果是透明度，持续时间是0.4秒，缓出效果，无延迟时间*/
+ }
+ 
+ 
+ /* 设置 .home .city_list-item 这个类在鼠标悬停时的子元素 p 的伪元素 ::after 的样式*/
+ .home.city_list-item:hover p::after {
+  opacity:1;
+  /*透明度是一，即可见*/
+ }
+ 
+ 
+ /* 设置 .home .city_list-item 这个类的子元素.city_list-char 的样式*/
+ .home.city_list-item.city_list-char {
+  position:absolute;
+  /*绝对定位*/
+  z-index:2;
+  /*层叠顺序是2*/
+  top:0;
+  /*距离顶部是零*/
+  left:0;
+  /*距离左边是零*/
+  display:block;
+  /*显示为块级元素*/
+  content:'';
+  /*内容为空*/
+  width:100%;
+  /*宽度是100%*/
+  height:100%;
+  /*高度是100%*/
+  background-repeat:no-repeat;
+  /*背景图不重复*/
+  background-size: contain;
+  background-position:calc(50% +360 px)50%;
+  /*背景图位置是水平方向居中加360像素，垂直方向居中*/
+  background-size:960 px260 px;
+  /*背景图大小是固定的像素值*/
+  opacity:0;
+  /*透明度是零，即不可见*/
+  transition:all0.2 s ease-in-out;
+  /*过渡效果是所有属性，持续时间是0.2秒，缓入缓出效果，无延迟时间*/ 
+  border:#fff solid6 px;
+  /*边框是白色实线6像素宽*/ 
+ }
+ 
+ 
+ /* 设置 .home .city_list-item 这个类在鼠标悬停时的子元素.city_list-char 的样式*/ 
+ .home.city_list-item:hover.city_list-char { 
+  opacity:1;
+  /*透明度是一，即可见*/ 
+ } 
+ 
+ 
+ /* 设置.home.city_list-item--disable这个类的样式*/ 
+ .home.city_list-item--disable { 
+  pointer-events:none;
+  /*鼠标事件无效*/ 
+ } 
+ 
+ 
+ /* 设置.home.city_list-item--disable这个类的子元素p和a的样式*/ 
+ .home.city_list-item--disable p,.home.city_list-item--disable a { 
+  color:rgba(255,255,255,0.3)!important;
+  /*字体颜色是半透明的白色，并且优先级最高(important)*/ 
+ } 
+ 
+ 
+ /* 设置.home.city_list-item3这个类的样式*/ 
+ .home.city_list-item3 { 
+  background-size:cover;
+  /*背景图大小覆盖整个元素*/  
+  background-image:url(../images/city_disable.jpg);
+  /*背景图是一个禁用状态的图片*/  
+ }
+ 
+
+ /* city模块 end */
+
+/* 内容模块 end*/
+
+/* 尾部模块 start*/
+.footer {
+  position: relative;
+  z-index: 998;
+  width: 100%;
+  min-width: 1280px;
+  min-height: 360px;
+  padding-bottom: 35px;
+  background-color: #111;
+  margin: 0 auto;
+}
+
+/* 社交栏模块 start*/
+.footer_socialbar {
+  display: flex;
+  z-index: 2;
+  list-style-type: none;
+  width: 100%;
+  height: 52px;
+  line-height: 52px;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  
+  /* border-bottom: #1a1a1a solid 2px; */
+}
+.footer_socialitem {
+  position: relative;
+  float: left;
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+  margin-right: 34px;
+  opacity: 0.4;
+  cursor: pointer;
+  background-size: cover;
+}
+.footer_socialitem:last-child {
+  margin-right: 0;
+}
+.footer_socialitem:hover {
+  opacity: 1;
+}
+.footer_socialitem--weibo {
+  background-image: url(../images/weibo.png);
+}
+.footer_socialitem--wechat {
+  background-image: url(../images/wechat.png);
+}
+.footer_socialitem--qq {
+  background-image: url(../images/qq.png);
+}
+.footer_socialitem--share {
+  width: 100%;
+  height: 100%;
+  background-image: url(../images/share.png);
+  background-size: cover;
+}
+.share_wrap {
+  display: none;
+  position: absolute;
+  right: -6px;
+  bottom: 0;
+  width: 304px;
+  height: 120px;
+  border-radius: 6px;
+  background: #3d3d3d;
+  text-align: center;
+  transform: translateY(142px);
+  transform-origin: top;
+}
+.footer_socialitem:hover .share_wrap {
+  display: block;
+}
+.share_wrap p {
+  margin-bottom: 6px;
+  height: 46px;
+  line-height: 2.55;
+  font-size: 18px;
+  color: #ccc;
+}
+.share_wrap::before {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: -22px;
+  width: 100%;
+  height: 22px;
+  background: transparent;
+}
+.share_wrap::after {
+  content: '';
+  position: absolute;
+  right: 12px;
+  top: -11px;
+  width: 0;
+  height: 0;
+  border-bottom: 12px solid #3d3d3d;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+}
+.share_wrap ul li {
+  display: inline-block;
+  margin-right: 20px;
+  width: 44px;
+  height: 44px;
+  background: transparent url(../images/share_content.png) no-repeat 0 0;
+  opacity: 0.9;
+}
+.share_wrap ul li:last-child {
+  margin-right: 0;
+}
+.share_wrap ul .share_qzone {
+  background-position: -74px -74px;
+}
+.share_wrap ul .share_qq {
+  background-position: -74px -10px;
+}
+.share_wrap ul .share_weibo {
+  background-position: -138px -138px;
+}
+.share_wrap ul .share_bbs {
+  background-position: -10px -138px;
+}
+
+/* 社交栏模块 end*/
+.footer {
+  padding: 30px 0;
+  background: #ffffff;
+  color: #999;
+  font-size: 14px;
+  padding-bottom: 20px;
+}
+.footer .footer-content {
+  display: flex;
+  width: 1280px;
+  margin: 0 auto;
+}
+.footer .footer-logo {
+  flex-direction: column;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  min-height: 94px;
+  min-width: 300px;
+}
+.footer .footer-logo span {
+  width: 1px;
+  height: 100px;
+  background: #666;
+  margin-left: px;
+  margin-right: 25px;
+}
+.footer .footer-logo img:first-child {
+  height: 111px;
+}
+.footer .footer-logo img.game-logo {
+  width: 110px;
+  height: auto;
+}
+.footer .footer-info {
+  color: #aaa;
+  margin-left: 60px;
+  line-height: 24px;
+}
+
+/* 尾部文字模块 start*/ 
+.footer .footer-link { 
+   
+  /* 这是一个 CSS 选择器，用于选择 class="footer-link" 的元素，且在 class="footer" 的元素内部 */
+  display: -webkit-box; 
+   
+  /* 这是一个 CSS 属性，用于设置显示模式为弹性盒子布局，适用于 WebKit 浏览器 */
+  display: -ms-flexbox; 
+   
+  /* 这是一个 CSS 属性，用于设置显示模式为弹性盒子布局，适用于 Microsoft 浏览器 */
+  display: flex; 
+   
+  /* 这是一个 CSS 属性，用于设置显示模式为弹性盒子布局，适用于标准浏览器 */
+  -webkit-box-align: center; 
+   
+  /* 这是一个 CSS 属性，用于垂直居中对齐项目，适用于 WebKit 浏览器 */
+  -ms-flex-align: center; 
+   
+  /* 这是一个 CSS 属性，用于垂直居中对齐项目，适用于 Microsoft 浏览器 */
+  align-items: center; 
+   
+  /* 这是一个 CSS 属性，用于垂直居中对齐项目，适用于标准浏览器 */
+  -webkit-box-pack: justify; 
+   
+  /* 这是一个 CSS 属性，用于沿主轴均匀分布项目，适用于 WebKit 浏览器 */
+  -ms-flex-pack: justify; 
+   
+  /* 这是一个 CSS 属性，用于沿主轴均匀分布项目，适用于 Microsoft 浏览器 */
+  justify-content: space-between; 
+   
+  /* 这是一个 CSS 属性，用于沿主轴均匀分布项目，适用于标准浏览器 */
+ }
+ .footer .footer-info .footer-protocol {
+  color: #000000; 
+   
+  /* 这是一个 CSS 属性，用于设置文本颜色为白色 */
+  margin-bottom: 28px; 
+   
+  /* 这是一个 CSS 属性，用于设置底部外边距为 28 像素 */
+ }
+ .footer .footer-link a:first-child {
+  margin-left: 0; 
+   
+  /* 这是一个 CSS 属性，用于设置左外边距为零，针对 class="footer-link" 的元素内部的第一个 <a> 元素 */
+ }
+ .footer .footer-info a.protocol {
+  color: 112, 162, 215; 
+   
+  /* 这是一个 CSS 属性，用于设置文本颜色为白色，针对 class="protocol" 的 <a> 元素，且在 class="footer-info" 的元素内部 */
+ }
+ .footer .footer-link a {
+  margin: 0 8px 0 5px; 
+   
+  /* 这是一个 CSS 属性，用于设置上、右、下、左外边距分别为 0、8、0、5 像素，针对 class="footer-link" 的元素内部的 <a> 元素 */
+ }
+ .footer p {
+  margin: 0; 
+   
+  /* 这是一个 CSS 属性，用于设置所有外边距为零，针对 class="footer" 的元素内部的 <p> 元素 */
+  padding: 0; 
+   
+  /* 这是一个 CSS 属性，用于设置所有内边距为零，针对 class="footer" 的元素内部的 <p> 元素 */
+  font-size: 14px; 
+   
+  /* 这是一个 CSS 属性，用于设置字体大小为 14 像素，针对 class="footer" 的元素内部的 <p> 元素 */
+  line-height: 1.5; 
+   
+  /* 这是一个 CSS 属性，用于设置行高为字体大小的 1.5 倍，针对 class="footer" 的元素内部的 <p> 元素 */
+ }
+ .footer .footer-info .footer-advice p {
+  padding: 0; 
+   
+  /* 这是一个 CSS 属性，用于设置所有内边距为零，针对 class="footer-advice" 的元素内部的 <p> 元素，且在 class="footer-info" 的元素内部 */
+ }
+ .footer .footer-info .inline-info {
+  display: -webkit-box; 
+   
+  /* 这是一个 CSS 属性，用于设置显示模式为弹性盒子布局，适用于 WebKit 浏览器 */
+  display: -ms-flexbox; 
+   
+  /* 这是一个 CSS 属性，用于设置显示模式为弹性盒子布局，适用于 Microsoft 浏览器 */
+  display: flex; 
+   
+  /* 这是一个 CSS 属性，用于设置显示模式为弹性盒子布局，适用于标准浏览器 */
+  -webkit-box-align: center; 
+   
+  /* 这是一个 CSS 属性，用于垂直居中对齐项目，适用于 WebKit 浏览器 */
+  -ms-flex-align: center; 
+   
+  /* 这是一个 CSS 属性，用于垂直居中对齐项目，适用于 Microsoft 浏览器 */
+  align-items: center; 
+   
+  /* 这是一个 CSS 属性，用于垂直居中对齐项目，适用于标准浏览器 */
+ }
+ .footer .footer-info .inline-info {
+  display: -webkit-box; 
+   
+  /* 这是第 23 行的重复声明，可以删除或合并 */
+  display: -ms-flexbox; 
+   
+  /* 这是第 24 行的重复声明，可以删除或合并 */
+  display: flex; 
+   
+  /* 这是第 25 行的重复声明，可以删除或合并 */
+  -webkit-box-align: center; 
+   
+  /* 这是第 26 行的重复声明，可以删除或合并 */
+  -ms-flex-align: center; 
+   
+  /* 这是第 27 行的重复声明，可以删除或合并 */
+  align-items: center; 
+   
+  /* 这是第 28 行的重复声明，可以删除或合并 */
+ }
+ .footer .footer-info .split-line {
+  margin: 0 10px; 
+   
+  /* 这是一个 CSS 属性，用于设置上下外边距为零、左右外边距为 10 像素， */
+  
+   /* 针对 class="split-line" 的元素，在 class="footer-info" 的元素内部 */
+ }
+ .footer a {
+  color: 190, 171, 193; 
+   
+  /* 这是一个 CSS 属性， */
+  
+   /* 用于设置文本颜色为灰色，针对 class="footer" 的元素内部的 <a> 元素 */
+ }
+ .footer a:hover {
+  color:172, 194, 241; 
+   
+  /* 这是一个 CSS 属性， */
+  
+   /* 用于设置鼠标悬停时文本颜色为白色，针对 class="footer" 的元素内部的 <a> 元素 */
+ }
+ .footer .footer-info .footer-filing-content {
+  padding: 0; 
+   
+  /* 这是一个 CSS 属性， */
+  
+   /* 用于设置所有内边距为零，针对 class="footer-filing-content" 的元素，在 class="footer-info" 的元素内部 */
+ }
+ .footer .footer-info .footer-filing-tip {
+  padding: 0; 
+   
+  /* 这是一个 CSS 属性， */
+  
+   /* 用于设置所有内边距为零，针对 class="footer-filing-tip" 的元素，在 class="footer-info" 的元素内部 */
+ }
+ .footer .footer-info .footer-tip {
+  padding: 0; 
+   
+  /* 这是一个 CSS 属性， */
+  
+   /* 用于设置所有内边距为零，针对 class="footer-tip" 的元素，在 class="footer-info" 的元素内部 */
+ }
+ .footer .footer-info .mihoyo-copyright {
+  padding: 0; 
+   
+  /* 这是一个 CSS 属性， */
+  
+   /* 用于设置所有内边距为零，
+  针对 class="mihoyo-copyright"
+  在 class="footer-info"
+  元素内部的元素。 */
+ 
+  /* 尾部文字模块 end*/ 
+ 
+ /* 尾部图标模块 start */
+ .footer .footer-icon {
+  
+  /* 这些属性都是用于设置弹性盒子布局的 */
+  display: flex; 
+  
+  /* 这是一个简写的方式，相当于写了 display:-webkit-box;display:-ms-flexbox;display:flex; */
+  align-items: center; 
+  
+  /* 这是一个简写的方式，相当于写了 -webkit-box-align:center;-ms-flex-align:center; */
+  justify-content: flex-start; 
+  
+  /* 这是一个简写的方式，相当于写了 -webkit-box-pack:start;-ms-flex-pack:start; */
+  padding: 10px 0; 
+  
+  /* 这是一个简写的方式，相当于写了 padding-top:10px;padding-bottom:10px;padding-right:0;padding-left:0; */
+  flex-wrap: wrap; 
+  
+  /* //这是一个简写的方式，相当于写了 -webkit-flex-wrap:-ms-flex-wrap: */
+  width: 800px; 
+  
+  /* 这是一个属性，用于设置元素的宽度为 800 像素 */
+  }
+ 
+ 
+.footer .footer-icon a {
+  display: block;
+  width: 116px;
+  height: 46px;
+  margin-right: 15px;
+  background-size: 116px 46px;
+  margin-bottom: 10px;
+}
+
+/* 尾部图标模块 end */
+
+/* 尾部模块 end*/
+}
