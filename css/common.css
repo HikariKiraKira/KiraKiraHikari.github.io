@@ -1,133 +1,122 @@
 
 /* 头部模块 start*/
+
 /* 定义头部模块 */
 .header {
   position: fixed;
   z-index: 998;
-  width: 100%; /* 宽度为100% */
-  min-width: 320px; /* 最小宽度为320px，避免太小的屏幕显示不全 */
+  width: 100%;
+  min-width: 1280px;
   height: 66px;
   background-color: rgba(17, 17, 17, 0.75);
   box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.35);
- }
- 
- /* 头部模块顶部的小滑块 */
- .piece{
-  position: absolute; /* 绝对定位 */
-  z-index: 1; /* 层级为1 */
-  transition: all 0.3s ease-in-out 0s; /* 过渡效果 */
-  background-color: rgb(105, 224, 255); /* 背景颜色 */
-  height: 5px; /* 高度为5px */
-  left: calc(27.5% + 40px); /* 距离左边为27.5%加40px，根据父元素的宽度变化 */
-  width: calc(2.5% + 10px); /* 宽度为2.5%加10px，根据父元素的宽度变化 */
-  top: 0px; /* 距离顶部为0px */
- }
- .header_logo {
-  float: left; /* 左浮动 */
-  margin-left: 8px; /* 左外边距为8px */
-  margin-right: 0px; /* 右外边距为0px */
-  width: calc(25% - 8px); /* 宽度为25%减8px，根据父元素的宽度变化 */
-  height: 100%; /* 高度为100% */
-  background: transparent url(../images/header_logo.png) no-repeat; /* 背景图片不重复 */
-  cursor: pointer; /* 鼠标样式为指针 */
-  font-size: 0; /* 字体大小为0 */
- }
- .header_navbar {
-  display: flex; /* 使用弹性盒布局 */
-  list-style-type: none; /* 列表样式为无序列表 */
- }
- .header_navitem {
-  position: relative; /* 相对定位 */
-  flex: 1; /* 每个导航项占据相同的空间 */
-  height: 66px; /* 高度为66px */
-  line-height: 66px; /* 行高为66px，实现垂直居中 */
-  font-size: calc(1vw + 10px); /* 字体大小根据视口宽度变化，最小为10px，最大为17px */
-  color: #ccc; /* 字体颜色为灰色 */
-  text-align: center; /* 文本居中对齐 */
-  cursor: pointer; /* 鼠标样式为指针 */
- }
- .header_navitem:hover, .header_navitem_focus {
-  text-shadow: 0 0 10px #69e0ff, 0 0 20px #69e0ff, 0 0 40px #69e0ff; /* 文本阴影效果，颜色为蓝色 */
-  color: #fff; /* 文本颜色为白色 */
- }
- 
- 
- /* 使用target标签对不同的块进行标记 */
- .header_navitem[target=first]:hover ~ .piece{
-  left: calc(27.5% + (2.5% + 10px) * (1 - (1 / (1 + (100vw -320) / (960 -320))))); 
- /* 根据视口宽度计算距离左边的位置，当视口宽度在320到960之间时，线性变化，否则保持不变 */ 
- }
- .header_navitem[target=second]:hover ~ .piece{
-  left: calc(27.5% + (2.5% + 10px) * (1 + (1 / (1 + (100vw -320) / (960 -320)))));
- /* 根据视口宽度计算距离左边的位置，当视口宽度在320到960之间时，线性变化，否则保持不变 */ 
- }
- .header_navitem[target=third]:hover ~ .piece{
-  left: calc(27.5% + (2.5% + 10px) * (3 - (1 / (1 + (100vw -320) / (960 -320)))));
- /* 根据视口宽度计算距离左边的位置，当视口宽度在320到960之间时，线性变化，否则保持不变 */ 
- }
- .header_navitem[target=fourth]:hover ~ .piece{
-  left: calc(27.5% + (2.5% + 10px) * (3 + (1 / (1 + (100vw -320) / (960 -320)))));
- /* 根据视口宽度计算距离左边的位置，当视口宽度在320到960之间时，线性变化，否则保持不变 */ 
- }
- .header_navitem[target=fifth]:hover ~ .piece{
-  left: calc(27.5% + (2.5% + 10px) * (5 - (1 / (1 + (100vw -320) / (960 -320)))));
- /* 根据视口宽度计算距离左边的位置，当视口宽度在320到960之间时，线性变化，否则保持不变 */ 
- }
- 
- /* 登录按键 */
- .header_login {
-  display: flex;
-  justify-content: flex-end;
-  position: absolute;
-  top: 0;
-  right: calc(2% + max((100vw -1280) /2 ,0)); 
- /* 距离右边根据视口宽度和最小宽度计算位置 */ 
-  height: 100%;
-  min-width: calc(15% - max((100vw -1280) /2 ,0)); 
- /* 最小宽度根据视口宽度和最小宽度计算大小 */ 
-  white-space: nowrap;
- }
- .header_login .login_btn {
+}
+
+/* 头部模块顶部的小滑块 */
+.piece{
+ position: absolute; /* 绝对定位 */
+ z-index: 1; /* 层级为1 */
+ transition: all 0.3s ease-in-out 0s; /* 过渡效果 */
+ background-color: rgb(105, 224, 255); /* 背景颜色 */
+ height: 5px; /* 高度为5px */
+ left: 354px; /* 距离左边为354px */
+ width: 40px; /* 宽度为40px */
+ top: 0px; /* 距离顶部为0px */
+}
+.header_logo {
+ float: left; /* 左浮动 */
+ margin-left: 8px; /* 左外边距为8px */
+ margin-right: 0px; /* 右外边距为0px */
+ width: 317px; /* 宽度为317px */
+ height: 100%; /* 高度为100% */
+ background: transparent url(../images/header_logo.png) no-repeat; /* 背景图片不重复 */
+ cursor: pointer; /* 鼠标样式为指针 */
+ font-size: 0; /* 字体大小为0 */
+}
+.header_navbar {
+ display: inline-block; /* 行内块级元素 */
+ list-style-type: none; /* 列表样式为无序列表 */
+}
+.header_navitem {
+ position: relative; /* 相对定位 */
+ float: left; /* 左浮动 */
+ width: auto; /* 宽度自适应 */
+ height: 66px; /* 高度为66px */
+ margin: 0 30px; /* 上下外边距为0，左右外边距为30px */
+ line-height: 66px; /* 行高为66px，实现垂直居中 */
+ font-size: 17px; /* 字体大小为17px */
+ color: #ccc; /* 字体颜色为灰色 */
+ text-align: center; /* 文本居中对齐 */
+ cursor: pointer; /* 鼠标样式为指针 */
+}
+.header_navitem:hover, .header_navitem_focus {
+ text-shadow: 0 0 10px #69e0ff, 0 0 20px #69e0ff, 0 0 40px #69e0ff; /* 文本阴影效果，颜色为蓝色 */
+ color: #fff; /* 文本颜色为白色 */
+}
+
+
+/* 使用target标签对不同的块进行标记 */
+.header_navitem[target=first]:hover ~ .piece{
+    left: 477px;
+}
+.header_navitem[target=second]:hover ~ .piece{
+    left: 596px;
+}
+.header_navitem[target=third]:hover ~ .piece{
+    left: 740px;
+}
+.header_navitem[target=fourth]:hover ~ .piece{
+    left: 750px;
+}
+.header_navitem[target=fifth]:hover ~ .piece{
+    left: 849px;
+}
+
+/* 登录按键 */
+.header_login {
+    display: flex;
+    justify-content: flex-end;
+    position: absolute;
+    top: 0;
+    right: 30px;
+    height: 100%;
+    min-width: 200px;
+    white-space: nowrap;
+}
+.header_login .login_btn {
   display: flex;
   align-items: center;
-  padding: calc(1vw + max((100vw -1280) /2 ,0)) calc(2vw + max((100vw -1280) /2 ,0)); 
- /* 内边距根据视口宽度和最小宽度计算大小 */ 
-  border: none;
-  outline:none;
-  background-color:none;
-  font-size :calc(1vw + max((100vw -1280) /2 ,0)); 
- /* 字体大小根据视口宽度和最小宽度计算大小 */ 
-  color:#ccc;
- }
- .header_login .login_btn #user{
-  margin-left :calc(1vw + max((100vw -1280) /2 ,0)); 
- /* 左外边距根据视口宽度和最小宽度计算大小 */ 
-  font-size :calc(2vw + max((100vw -1280) /2 ,0)); 
- /* 字体大小根据视口宽度和最小宽度计算大小 */ 
- }
- .header_login .login_btn:hover {
-  color:#fff;
- }
- 
- /* 音乐播放控件 */
- .audio_controller {
-  position :fixed;
-  z-index :999;
-  top :calc(18 * min((100vh /66), ((100vw *9/16)/66))); 
- /* 距离顶部根据视口高度和最小高度计算位置 */ 
-  left :calc(max((100vw -1280) /2 ,8)); 
- /* 距离左边根据视口高度和最小高度计算位置 */ 
- }
- .audio_controller_on,
- .audio_controller_off {
-  width :calc(min((100vh /66), ((100vw *9/16)/66)) *30); 
- /* 宽度根据视口高度和最小高度计算大小 */ 
-  height :calc(min((100vh /66), ((100vw *9/16)/66)) *30); 
- /* 高度根据视口高度和最小高度计算大小 */ 
-  cursor:pointer;
- }
- 
- 
+  padding: 0 10px;
+  border: 0;
+  outline: none;
+  background: none;
+  font-size: 17px;
+  color: #ccc;
+}
+.header_login .login_btn #user{
+  margin-left: 18px;
+  font-size: 27px;
+}
+.header_login .login_btn:hover {
+  color: #fff;
+}
+
+/* 音乐播放控件 */
+.audio_controller {
+  position: fixed;
+  z-index: 999;
+  top: 18px;
+  left: 70px;
+}
+.audio_controller_on,
+.audio_controller_off {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+/* 头部模块 end*/
+
 /* 内容模块 start*/
 .home {
   min-width: 1280px;
