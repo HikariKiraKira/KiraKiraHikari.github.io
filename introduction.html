@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-
+<!doctype html>
 <html lang="zh-CN"> 
 	<head> 
 		<meta charset="UTF-8"> 
@@ -13,349 +12,833 @@
 		 网站图片一般都存储在网站的根目录下，名字一般叫做 favicon.ico -->
 		<link rel="icon" type="image/x-icon" href="image\favicon.ico" /><!--网页图标-->
     <!-- 引入初始样式文件 -->
-    <link rel="stylesheet" href="css/base.css">
-    <!-- 引入公共的样式文件 -->
-    <link rel="stylesheet" href="css/common.css">
-    <!-- 引入字体图标的样式文件 -->
-    <link rel="stylesheet" href="fonts/style.css">
-    <script src="js\news.js">
-
-    </script>
- 
-</head>
-<style>
-/* 设置所有元素的盒模型，边距和填充为0 */
-* {
- box-sizing: border-box;
- margin: 0;
- padding: 0;
- }
- /* 头部模块顶部的小滑块 */
-.piece{
-  position: absolute; /* 绝对定位 */
-  z-index: 1; /* 层级为1 */
-  transition: all 0.3s ease-in-out 0s; /* 过渡效果 */
-  background-color: rgb(105, 224, 255); /* 背景颜色 */
-  height: 5px; /* 高度为5px */
-  left: 477px; /* 距离左边为354px */
-  width: 40px; /* 宽度为40px */
-  top: 0px; /* 距离顶部为0px */
- }
- .header_logo {
-  float: left; /* 左浮动 */
-  margin-left: 8px; /* 左外边距为8px */
-  margin-right: 0px; /* 右外边距为0px */
-  width: 317px; /* 宽度为317px */
-  height: 100%; /* 高度为100% */
-  background: transparent url(../images/header_logo.png) no-repeat; /* 背景图片不重复 */
-  cursor: pointer; /* 鼠标样式为指针 */
-  font-size: 0; /* 字体大小为0 */
- }
- .header_navbar {
-  display: inline-block; /* 行内块级元素 */
-  list-style-type: none; /* 列表样式为无序列表 */
- }
- .header_navitem {
-  position: relative; /* 相对定位 */
-  float: left; /* 左浮动 */
-  width: auto; /* 宽度自适应 */
-  height: 66px; /* 高度为66px */
-  margin: 0 30px; /* 上下外边距为0，左右外边距为30px */
-  line-height: 66px; /* 行高为66px，实现垂直居中 */
-  font-size: 17px; /* 字体大小为17px */
-  color: #ccc; /* 字体颜色为灰色 */
-  text-align: center; /* 文本居中对齐 */
-  cursor: pointer; /* 鼠标样式为指针 */
- }
- .header_navitem:hover, .header_navitem_focus {
-  text-shadow: 0 0 10px #69e0ff, 0 0 20px #69e0ff, 0 0 40px #69e0ff; /* 文本阴影效果，颜色为蓝色 */
-  color: #fff; /* 文本颜色为白色 */
- }
- 
-
-/* 使用target标签对不同的块进行标记 */
-.header_navitem[target=top]:hover ~ .piece{
-  left: 355px;
-}
-.header_navitem[target=first]:hover ~ .piece{
-    left: 477px;
-}
-.header_navitem[target=second]:hover ~ .piece{
-    left: 596px;
-}
-.header_navitem[target=third]:hover ~ .piece{
-    left: 740px;
-}
-.header_navitem[target=fourth]:hover ~ .piece{
-    left: 750px;
-}
-.header_navitem[target=fifth]:hover ~ .piece{
-    left: 849px;
-}
-/* 定义一个类名为city的样式 */
-.city {
- color: #666; /* 设置文本颜色为灰色 */
- font-family: Helvetica Neue, arial, sans-serif; /* 设置字体为Helvetica Neue或者arial或者sans-serif */
- font-size: 18px; /* 设置字体大小为14像素 */
- line-height: 18px; /* 设置行高为14像素 */
- text-decoration: none; /* 去掉文本的下划线 */
- width: auto; /* 设置宽度为自动 */
- max-width: auto; /* 设置最大宽度为自动 */
- padding-right: 20px; /* 设置右内边距为20像素 */
- margin-left: auto; /* 设置左外边距为自动 */
- margin-right: auto; /* 设置右外边距为自动 */
-}
-
-/* 定义一个类名为inner的样式 */
-.inner {
- padding-top: 140px; /* 设置上内边距为140像素 */
- padding-bottom: 200px; /* 设置下内边距为200像素 */
- column-gap: 40px; /* 设置列间距为40像素 */
- display: grid; /* 设置显示方式为网格布局 */
- grid-template-columns: repeat(auto-fit, minmax(320px, 0.5fr)); /* 设置自适应的网格列，每列最小宽度为320像素，最大宽度为可用空间的一半 */
- grid-template-rows: auto; /* 设置自适应的网格行，每行高度根据内容自动调整 */
- justify-items: center; /* 设置网格项在水平方向上居中对齐 */
-}
-
-/* 定义一个类名为catchcopy的样式 */
-.catchcopy {
- font-size: 21px; /* 设置字体大小为24像素 */
- font-weight: 700; /* 设置字体粗细为700 */
- line-height: 33px; /* 设置行高为38像素 */
- animation-delay: 0.6s; /* 设置动画延迟时间为0.6秒 */
- animation-duration: 0.55s; /* 设置动画持续时间为0.55秒 */
- animation-name: fadein; /* 设置动画名称为fadein，需要定义fadein的关键帧和属性变化 */
- animation-timing-function: cubic-bezier(0, 0, 0.1, 1); /* 设置动画的速度曲线为三次贝塞尔曲线，控制点坐标分别为(0, 0)和(0.1, 1) */ 
-}
-
-/* 定义一个类名为left-image的样式 */
-.left-image {
-  margin-right: 10px; /* 设置图片和文本的右间距为10像素 */
-  margin-left: 20px; /* 设置图片和左边界的间距为20像素 */
-  max-width: 100%; /* 设置图片的最大宽度为可用空间的一半 */
-  height: auto; /* 设置图片的高度为自动 */
-}
-
-/* 定义一个类名为right-image的样式 */
-.right-image {
-  margin-left: 10px; /* 设置图片和文本的左间距为10像素 */
-  margin-right: 20px; /* 设置图片和右边界的间距为20像素 */
-  max-width: 100%; /* 设置图片的最大宽度为可用空间的一半 */
-  height: auto; /* 设置图片的高度为自动 */
-}
-
-/* 定义鼠标悬停在图片时的样式 */
-.left-image:hover {
-  opacity: 0.5; /* 设置图片的透明度为0.5 */
-  border: 5px solid black; /* 设置图片的边框为5像素的黑色实线 */
-}
-
-
-/* 定义鼠标悬停在图片时的样式 */
-.right-image:hover {
-  opacity: 0.5; /* 设置图片的透明度为0.5 */
-  border: 5px solid black; /* 设置图片的边框为5像素的黑色实线 */
-}
-.awa2 {
-    position: absolute; /* 设置图片的定位方式为绝对定位 */
-    top:-111px; /* 设置图片距离上边界为0 */
-    left: -111px; /* 设置图片距离右边界为0 */
+    <link rel="stylesheet" href="./css/style.css">
+  </head>
+  <style>* {
+    box-sizing: border-box;
   }
-.awa3 {
-    position: absolute; /* 设置图片的定位方式为绝对定位 */
-    top:-10px; /* 设置图片距离上边界为0 */
-    left: -70px; /* 设置图片距离右边界为0 */
+  body {
+    margin: 0;
   }
-  .awa4 {
-    position: absolute; /* 设置图片的定位方式为绝对定位 */
-    top:800px; /* 设置图片距离上边界为0 */
-   right: -70px; /* 设置图片距离右边界为0 */
+  .fill-form{
+    text-align:center;
   }
-/* 定义spin动画的关键帧和属性变化 */
-@keyframes spin {
-    from {transform: rotate(0deg);}
-    to {transform: rotate(360deg);}
-}
-
-/* 定义fadein动画的关键帧和属性变化 */
-@keyframes fadein {
-    from {opacity:0;}
-    to {opacity:1;}
-}
-/* 设置移动端和平板端的断点 */
-@media screen and (max-width: 768px) {
-  /* 设置移动端和平板端的样式 */
-  .city {
-    max-width: 100%; /* 设置最大宽度为100% */
+  .c25565{
+    margin-right:0px;
+    margin-bottom:0px;
+    user-select:text;
+    word-break:break-word;
+    font-size:19px;
+    line-height:var(--cib-type-body2-line-height);
+    font-variation-settings:var(--cib-type-body2-font-variation-settings);
+    color:rgb(17, 17, 17);
+    font-family:-apple-system, Roboto, SegoeUI, "Segoe UI", "Helvetica Neue", Helvetica, "Microsoft YaHei", "Meiryo UI", Meiryo, "Arial Unicode MS", sans-serif;
+    background-color:rgba(255, 255, 255, 0.6);
+    margin-top:10px !important;
   }
-
-  .inner {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* 设置网格列的最小宽度为200px */
-    padding-top: 80px; /* 设置上内边距为80px */
-    padding-bottom: 100px; /* 设置下内边距为100px */
-    padding-left: 333px; /* 设置左内边距为50px */
-    padding-right: 333px; /* 设置右内边距为50px */
+  .c25583{
+    margin-right:0px;
+    margin-bottom:0px;
+    user-select:text;
+    word-break:break-word;
+    font-size:20px;
+    line-height:var(--cib-type-body2-line-height);
+    font-variation-settings:var(--cib-type-body2-font-variation-settings);
+    color:rgb(17, 17, 17);
+    font-family:-apple-system, Roboto, SegoeUI, "Segoe UI", "Helvetica Neue", Helvetica, "Microsoft YaHei", "Meiryo UI", Meiryo, "Arial Unicode MS", sans-serif;
+    background-color:rgba(255, 255, 255, 0.6);
+    margin-top:10px !important;
   }
-
-  .catchcopy {
-    font-size: 21px; /* 设置字号为21px */
-    line-height: 28px; /* 设置行高为28px */
-    width: 80%; /* 设置宽度为80% */
-   
+  .c1731{
+    text-align:left;
+    color:#000000;
   }
-  /* 定义一个类名为awa2的样式 */
+  .fdb-block{
+    font-family:Roboto, sans-serif;
+    font-size:16px;
+    line-height:1.5;
+    text-rendering:optimizelegibility;
+    padding-top:100px;
+    padding-right:0px;
+    padding-bottom:100px;
+    padding-left:0px;
+    color:rgb(68, 68, 68);
+    position:relative;
+    background-size:cover;
+    background-position-x:center;
+    background-position-y:center;
+    overflow-x:hidden;
+    overflow-y:hidden;
+    background-color:rgb(255, 255, 255);
+  }
+  .text-center{
+    text-align:center;
+  }
+  .align-items-center{
+    align-items:center;
+  }
+  .img-fluid{
+    max-width:100%;
+    height:auto;
+  }
+  .fdb-block img{
+    border-top-left-radius:4px;
+    border-top-right-radius:4px;
+    border-bottom-right-radius:4px;
+    border-bottom-left-radius:4px;
+  }
+  .fdb-block .fdb-touch{
+    border-top-width:5px;
+    border-top-style:solid;
+    border-top-color:rgb(82, 139, 255);
+  }
+  .fdb-block .fdb-box{
+    background-image:initial;
+    background-position-x:initial;
+    background-position-y:initial;
+    background-size:initial;
+    background-repeat-x:initial;
+    background-repeat-y:initial;
+    background-attachment:initial;
+    background-origin:initial;
+    background-clip:initial;
+    background-color:rgb(255, 255, 255);
+    color:rgb(68, 68, 68);
+    padding-top:60px;
+    padding-right:40px;
+    padding-bottom:60px;
+    padding-left:40px;
+    border-top-left-radius:4px;
+    border-top-right-radius:4px;
+    border-bottom-right-radius:4px;
+    border-bottom-left-radius:4px;
+    box-shadow:rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    overflow-x:hidden;
+    overflow-y:hidden;
+  }
+  .fdb-block .text-h2, .fdb-block h2{
+    font-size:1rem;
+    margin-bottom:0.5em;
+    margin-top:0.3em;
+    font-weight:400;
+  }
+  .fdb-block .text-h3, .fdb-block h3{
+    font-size:0.875rem;
+    margin-bottom:0.5em;
+    margin-top:0.3em;
+    font-weight:400;
+  }
+  .mt-4{
+    margin-top:1.5rem !important;
+  }
+  a{
+    color:rgb(0, 123, 255);
+    text-decoration-line:none;
+    text-decoration-thickness:initial;
+    text-decoration-style:initial;
+    text-decoration-color:initial;
+    background-color:transparent;
+  }
+  a:hover{
+    color:rgb(0, 86, 179);
+    text-decoration-line:underline;
+    text-decoration-thickness:initial;
+    text-decoration-style:initial;
+    text-decoration-color:initial;
+  }
+  .c6184{
+    background-image:url(https://oss.htmlpage.cn/editor/images/bg_3.svg);
+  }
+  .fdb-box.br-0{
+    text-align:center;
+  }
+  .progress-list .progressbar.line{
+    height:8px;
+    background-color:rgb(244, 244, 244);
+  }
+  body{
+    font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size:16px;
+  }
+  .c20181{
+    font-size:21px;
+    font-weight:200;
+    line-height:27px;
+    margin-top:20px;
+  }
+  .c20199{
+    font-size:21px;
+    font-weight:200;
+    line-height:27px;
+    margin-bottom:5px;
+  }
+  .c20226{
+    font-size:21px;
+    font-weight:200;
+  }
+  .c20253{
+    font-size:18px;
+    font-weight:200;
+    line-height:21px;
+    margin-bottom:20px;
+  }
+  .c20280{
+    font-size:18px;
+    font-weight:200;
+    line-height:21px;
+    margin-bottom:20px;
+  }
+  .c20298{
+    font-size:12px;
+    font-weight:200;
+    line-height:21px;
+  }
+  .c20316{
+    font-size:12px;
+    font-weight:200;
+    line-height:21px;
+  }
+  .c20334{
+    font-size:12px;
+    font-weight:200;
+    line-height:21px;
+  }
+  .c20352{
+    font-size:12px;
+    font-weight:200;
+    line-height:21px;
+    margin-bottom:20px;
+  }
+  .c20388{
+    font-size:18px;
+    font-weight:200;
+    line-height:21px;
+    margin-bottom:20px;
+  }
+  .c20406{
+    font-size:18px;
+    font-weight:200;
+    line-height:21px;
+    margin-bottom:20px;
+  }
+  .c20424{
+    font-size:12px;
+    font-weight:200;
+    line-height:21px;
+  }
+  .c22530{
+    color:rgb(254, 102, 78);
+    font-size:20px;
+    letter-spacing:-0.2px;
+    text-align:start;
+    text-transform:uppercase;
+  }
+  .c23461{
+    font-size:11px;
+  }
+  .footer-1{
+    margin-top:60px;
+    background-color:rgb(34, 34, 34);
+  }
+  .footer-1 .media-container-row{
+    padding-top:10px;
+    padding-right:0px;
+    padding-bottom:10px;
+    padding-left:0px;
+    width:100%;
+    color:rgb(122, 122, 122);
+  }
+  .footer-1 a{
+    color:rgb(255, 255, 255);
+    text-decoration-line:none;
+    text-decoration-thickness:initial;
+    text-decoration-style:initial;
+    text-decoration-color:initial;
+  }
+  p{
+    display:block;
+    margin-block-start:1em;
+    margin-block-end:1em;
+    margin-inline-start:0px;
+    margin-inline-end:0px;
+  }
+  .align-center{
+    text-align:center;
+  }
+  .footer-1 .mbr-text{
+    font-size:14px;
+    font-family:-apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Roboto, Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft Yahei", "Microsoft Jhenghei", sans-serif;
+  }
+  footer{
+    font-size:16px;
+  }
+  footer a{
+    color:rgb(68, 68, 68);
+  }
+  footer a:hover{
+    color:rgb(0, 86, 179);
+  }
+  footer .nav-link{
+    display:block;
+    padding-top:0.5rem;
+    padding-right:1rem;
+    padding-bottom:0.5rem;
+    padding-left:0px;
+    text-decoration-line:none;
+    text-decoration-thickness:initial;
+    text-decoration-style:initial;
+    text-decoration-color:initial;
+  }
+  .fdb-block .text-h3{
+    font-size:0.875rem;
+    margin-bottom:0.5em;
+    margin-top:0.3em;
+    font-weight:400;
+  }
+  .fdb-block .text-h3 a{
+    margin-right:12px;
+  }
+  .mt-3{
+    margin-top:1rem;
+  }
+  h3{
+    font-size:18px;
+  }
+  .nav-link.active{
+    text-align:center;
+    font-size:10px;
+  }
+  .c30609{
+    margin:0px;
+    padding:0px;
+    box-sizing:border-box;
+    border:0px;
+    vertical-align:middle;
+    height:100px;
+    color:rgb(153, 153, 153);
+    font-family:"Microsoft YaHei", "Heiti SC", tahoma, arial, "Hiragino Sans GB", 宋体, sans-serif;
+    font-size:14px;
+    font-style:normal;
+    font-variant-ligatures:normal;
+    font-variant-caps:normal;
+    font-weight:400;
+    letter-spacing:normal;
+    orphans:2;
+    text-align:start;
+    text-indent:0px;
+    text-transform:none;
+    white-space:normal;
+    widows:2;
+    word-spacing:0px;
+    -webkit-text-stroke-width:0px;
+    background-color:rgb(255, 255, 255);
+    text-decoration-thickness:initial;
+    text-decoration-style:initial;
+    text-decoration-color:initial;
+    width:100px;
+  }
+  .c30616{
+    margin:0px 25px 0px 0px;
+    padding:0px;
+    box-sizing:border-box;
+    font-family:icomoon;
+    width:1px;
+    height:100px;
+    background:rgb(102, 102, 102);
+    color:rgb(153, 153, 153);
+    font-size:14px;
+    font-style:normal;
+    font-variant-ligatures:normal;
+    font-variant-caps:normal;
+    font-weight:400;
+    letter-spacing:normal;
+    orphans:2;
+    text-align:start;
+    text-indent:0px;
+    text-transform:none;
+    white-space:normal;
+    widows:2;
+    word-spacing:0px;
+    -webkit-text-stroke-width:0px;
+    text-decoration-thickness:initial;
+    text-decoration-style:initial;
+    text-decoration-color:initial;
+  }
+  .c30688{
+    width:100px;
+    height:100px;
+    en:1;
+  }
+  .c32516{
+    color:rgb(170, 170, 170);
+    font-family:"Microsoft YaHei", "Heiti SC", tahoma, arial, "Hiragino Sans GB", 宋体, sans-serif;
+    font-size:14px;
+    letter-spacing:normal;
+    word-spacing:0px;
+  }
+  .c32672{
+    margin-right:10px;
+    margin-left:10px;
+    font-family:icomoon;
+    color:rgb(170, 170, 170);
+    font-size:14px;
+    letter-spacing:normal;
+    word-spacing:0px;
+  }
+  .c32690{
+    font-family:icomoon;
+    color:rgb(170, 170, 170);
+    font-size:14px;
+    letter-spacing:normal;
+    word-spacing:0px;
+  }
+  .c33171{
+    color:rgb(170, 170, 170);
+    font-family:icomoon;
+    font-size:14px;
+    letter-spacing:normal;
+    word-spacing:0px;
+    text-align:center;
+  }
+  .c33443{
+    color:rgb(170, 170, 170);
+    font-family:"Microsoft YaHei", "Heiti SC", tahoma, arial, "Hiragino Sans GB", 宋体, sans-serif;
+    font-size:14px;
+    letter-spacing:normal;
+    word-spacing:0px;
+  }
+  .c33461{
+    color:rgb(170, 170, 170);
+    font-family:"Microsoft YaHei", "Heiti SC", tahoma, arial, "Hiragino Sans GB", 宋体, sans-serif;
+    font-size:14px;
+    letter-spacing:normal;
+    word-spacing:0px;
+  }
+  .footer-tip.c33443{
+    text-align:center;
+  }
+  .c35974{
+    color:rgb(170, 170, 170);
+    font-family:"Microsoft YaHei", "Heiti SC", tahoma, arial, "Hiragino Sans GB", 宋体, sans-serif;
+    font-size:14px;
+    letter-spacing:normal;
+    word-spacing:0px;
+    text-align:center;
+  }
+  .c33571{
+    color:rgb(170, 170, 170);
+    font-family:"Microsoft YaHei", "Heiti SC", tahoma, arial, "Hiragino Sans GB", 宋体, sans-serif;
+    font-size:14px;
+    letter-spacing:normal;
+    word-spacing:0px;
+    text-align:center;
+  }
+  .c36106{
+    font-family:icomoon;
+  }
+  .row{
+    display:table;
+    padding-top:10px;
+    padding-right:10px;
+    padding-bottom:10px;
+    padding-left:10px;
+    width:100%;
+  }
+  .cell{
+    width:8%;
+    display:table-cell;
+    height:75px;
+  }
+  .c38434{
+    letter-spacing:normal;
+  }
+  .c38452{
+    letter-spacing:normal;
+  }
+  .c38461{
+    letter-spacing:normal;
+  }
+  @media (max-width: 768px){
+    .cell{
+      width:100%;
+      display:block;
+    }
+  }
+  </style>
 
+  <body>
 
-}
-
-
-</style>
-
-<main>
-  <!-- 使用<main>标签包裹整个页面 -->
-<body>
-  <!-- 头部模块 start-->
-  <header class="header">
-      <!-- logo模块 -->
-    <div class="header_logo">
-        <h1>
-          <img src="image/四岸三方logo.png" width="330">
-        </h1>
-    </div>
-    <!-- 音乐控件 -->
-    <div class="audio_controller">
-        <div class="audio_controller_on">
-          <img src="image/audio_controller_on.png" alt="音乐控件" class="audio_controller_on">
-          <!-- 谷歌浏览器不支持自动播放，可用edge浏览器打开 -->
-          <audio src="audios/BackGroundMusic.mp3" autoplay="autoplay" loop="loop">
-            您的浏览器不支持视频播放
-          </audio>
-        </div>
-    </div>
-    <div class="header_navbar">
-      <a href="index.html" target="top" class="header_navitem" >首 页</a>
-       <!-- 使用target标签对不同的块进行标记 -->
-       <a href="#" target="first" class="header_navitem header_navitem_focus" >项 目 介 绍</a>
-       <a href="news.html" target="second" class="header_navitem">资&nbsp;讯</a>
-       <a href="product.html" target="third" class="header_navitem">研 学 各 类 资 料</a>
-       <a href="#"  class="header_navitem">加 紧 制 作 中</a>
-       <div class="piece" ></div>
-     </div>
-     <div class="header_login">
-       <button class="login_btn">
-       <!-- 之前是登录按钮  -->
-     </span> <span style="color:white;text-shadow:3px 3px 3px rgb(150, 233, 254)">以"链"为渠，科技"兴"农 项目 期待您的加入</span>
-       </button>
-     </div>
-   </header>
-
-<section class="city" style="background-image: linear-gradient(108.54deg, rgb(220, 255, 203), rgb(225, 255, 237), rgb(184, 229, 255));" >
-<!-- 使用<section>标签表示每一段代码，并给它一个类名city -->
-  <div class="inner" >
-  <!-- 使用<div>标签表示内部容器，并给它一个类名inner -->
-    <img class="awa3" src="https://s.pximg.net/www/js/fanbox/4116a87f37c60dee0cc4efabb4062910.svg" style="height:97px;" data-rellax-speed="1.2" /> 
-    <!-- 使用<img>标签表示图片，并给它一个类名awa1，只设置高度属性 -->
-    <div class="catchcopy" style="margin-left: 20px;" >
-    <!-- 使用<div>标签表示文本，并给它一个类名catchcopy -->
-    “四岸三方”项目是一项基于区块链的公益项目,旨在通过小程序和新媒体推广农产品和乡村旅游。利用区块链技术提高农产品溯源效率,采用线上线下结合的方式销售农产品和文创产品。同时开展线下研学活动,借助项目小程序在省内推广。项目拓展小程序功能,结合绍兴自然和人文景观,实现高质量农业、宜居乡村、富裕农民,并帮助绍兴农村在竞争中发展。 
-    <br>如果你也热爱此话题,有自己的提案或初步进展,联系我们。我们非常期待能与同样热血的同学们一起完成这个充满挑战的项目! 
-    传递联系方式以便详细了解更多互动方式。我们期待与您会面交流,一起窃窃私语并铺垫下更多远大prospect !
-    </div>
-    <img src="image/轮播2.jpg" class="left-image">
-    <!-- <img src="image/轮播1.jpg"  class="left-image"> -->
-
-  </div>
-  <div class="inner" style="text-align: center;"`>
-    <img class="awa2" src="https://s.pximg.net/www/js/fanbox/4a84e3213eb52be97f190d9dc9b6c146.svg" style="height: 333px;" data-rellax-speed="0.8" />
-    <img class="awa4" src="https://s.pximg.net/www/js/fanbox/4a84e3213eb52be97f190d9dc9b6c146.svg" style="height: 333px;" data-rellax-speed="0.8" />
-    <img class="awa4" src="https://s.pximg.net/www/js/fanbox/62c4071ff069d5d37323615d630ef126.svg" style="height:107px;" data-rellax-speed="1.2" />
-    <div style="text-align: center;"> 
-      
-       <p style="font-size: 21px; font-weight: 200; line-height: 27px; margin-top: 20px;">以“链”为渠,科技“兴“农</p> 
-       <p style="font-size: 21px; font-weight: 200; line-height: 27px; margin-bottom: 5px;">李晓明 张小红 王大明</p> 
-       <br>
-       <p style="font-size: 21px; font-weight: 200;"> 指导老师 王老师</p> 
-       <br>
-       <p style="font-size: 18px; font-weight: 200; line-height: 21px; margin-bottom: 20px;"> 项目概念 李晓明 行业背景和市场分析 张小红 产品与服务 王大明 技术负责 程同学 
-        <span ></span> 
-       </p>
-       <p style="font-size: 18px; font-weight: 200; line-height: 21px; margin-bottom: 20px;"> 美术设计 赵老师 项目营销 李晓明 创业团队 张小红 财务预测与规划 王大明 风险分析 陈老师 </p> 
-       <p style="font-size: 12px; font-weight: 200; line-height: 21px;">区块链助农,让农产品更有价值,让消费者更放心。</p> 
-       <p style="font-size: 12px; font-weight: 200; line-height: 21px;">区块链助农,连接田间地头和餐桌,实现农业绿色发展。</p> 
-       <p style="font-size: 12px; font-weight: 200; line-height: 21px;">制作 程同学</p> 
-       <p style="font-size: 12px; font-weight: 200; line-height: 21px;margin-bottom: 20px;"> 区块链助农,打造数字乡村,促进乡村振兴。 
-        <br> 区块链助农,创新农业模式,推动农业现代化。 
-       </p> 
-       
-       <p style="font-size: 18px; font-weight: 200; line-height: 21px; margin-bottom: 20px;">配给 绍兴事业部    </p>        
-        <p style="font-size: 18px; font-weight: 200; line-height: 21px; margin-bottom: 20px;">合作伙伴 XXXXXXX</p> 
-       <p style="font-size: 12px; font-weight: 200; line-height: 21px;">©2023 四岸三方团队</p> 
-      </div>
-      <img src="image/轮播4.jpg" class="right-image">
-      <!-- <img src="image/轮播3.jpg"  class="right-image"> -->
-    </div>
-  </section>
-</main>
- <!-- 尾部内容模块 start -->
- <div class="footer">
-  <div class="footer-content">
-    <div class="footer-logo">
-      <div style="display: flex; align-items: center;">
-        <img src="image\二维码(temp).png" >
-        <span></span>
-        <h1>
-          <img src="image/页脚logo.png">
-        </h1>
-      </div>    
-    </div>
-    <div class="footer-info">
-      <div class="footer-link">
-        <div class="footer-protocol">
-          <div>
-            <a href="#" target="_blank" >关于我们</a>
-            |           
-            <a href="#" target="_blank" >联系我们</a>
-            |           
-            <a href="#" target="_blank">加入我们</a>          
-          </div>        
-        </div>      
-      </div>
+    <body>
       <div>
-        <p class="advice-info">          
-          区块链助农,连接田间地头和餐桌,实现农业数字发展。    区块链助农,打造数字乡村,促进乡村振兴。
-        </p>
-        <div class="inline-info">
-          <a href="#" target="_blank">            
-            填网站备案信息           
-          </a>
-          <span class="split-line"> | </span>
-          <span>填  增值电信业务经营许可证  可能不需要 </span>
-        </div>              
+        <!-- Bootstrap core CSS -->
+        <link href="template-1253409072.cos.ap-guangzhou.myqcloud.com/html-template/htmlpage_568_digimedia/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" /><!-- Additional CSS Files -->
+        <link rel="stylesheet" href="template-1253409072.cos.ap-guangzhou.myqcloud.com/html-template/htmlpage_568_digimedia/assets/css/fontawesome.css" />
+        <link rel="stylesheet" href="template-1253409072.cos.ap-guangzhou.myqcloud.com/html-template/htmlpage_568_digimedia/assets/css/htmlpage-digimedia-v2.css" />
+        <link rel="stylesheet" href="template-1253409072.cos.ap-guangzhou.myqcloud.com/html-template/htmlpage_568_digimedia/assets/css/animated.css" />
+        <link rel="stylesheet" href="template-1253409072.cos.ap-guangzhou.myqcloud.com/html-template/htmlpage_568_digimedia/assets/css/owl.css" /><!-- ***** Header Area Start ***** -->
+        <header data-wow-duration="0.75s" data-wow-delay="0s" class="header-area header-sticky wow slideInDown">
+          <div class="container">
+            <div class="row">
+              <div class="col-12">
+                <nav class="main-nav">
+                  <!-- ***** Logo Start ***** --><a href="index.html" class="logo"><img src="image\logo (1).png" width="10px" /></a><!-- ***** Logo End ***** -->
+                  <!-- ***** Menu Start ***** -->
+                  <ul class="nav">
+                    <li class="scroll-to-section"><a href="index.html">首页</a></li>
+                    <li class="scroll-to-section"><a href="introduction.html"class="active">项目介绍</a></li>
+                    <li class="scroll-to-section"><a href="news.html"  >资讯</a></li>
+                    <li class="scroll-to-section"><a href="product.html">研学各类资料</a></li>
+                    <li class="scroll-to-section"><a href="introduction.html#contact">加紧制作中</a></li>
+                    <li class="scroll-to-section">
+                      <div class="border-first-button"><a href="introduction.html#contact">以"链"为渠，科技"兴"农 项目 期待您的加入</a></div>
+                    </li>
+                  </ul><a class="menu-trigger"><span>Menu</span></a><!-- ***** Menu End ***** -->
+                </nav>
+              </div>
+            </div>
+          </div>
+        </header><!-- ***** Header Area End ***** -->
+        <div id="top" data-wow-duration="1s" data-wow-delay="0.5s" class="main-banner wow fadeIn">
+          <div>
+            <div class="container">
+              <div class="row text-center">
+                <div class="col-12">
+                  <h1><span id="ima408" class="c22530">page DESCRIPTION  一些小说明</span></h1>
+                  <h1>🎊注意:这是项目介绍页面 我正在尝试新的UI界面设计    介绍页面请往下划🌹
+                  </h1>
+                </div>
+              </div>
+              <div class="row text-left mt-5">
+                <div class="col-12 col-md-4">
+                  <div class="row">
+                    <div class="col-3"><img alt="image" src="oss.htmlpage.cn/editor/images/img_round.svg" class="img-fluid" /></div>
+                    <div class="col-9">
+                      <h3><strong>一定给我提供素材🔥</strong></h3>
+                      <p>素材包括图片 文字 等等
+                        <br />图片必须符合尺寸要求 
+                        <br />部分图片请 给无底色的png图
+                      </p>
+                      <p>谢谢你的理解和支持。</p>
+                      <p>要细节🔎 把要改动的文字📝 图片素材🖼️ 都发给我 📩<br />而且我还要根据效果调整 图片 🎨<br />把ui做一个效果图给我👉(不然真的麻烦死了😭)</p>
+                      <p></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-md-4">
+                  <div class="row">
+                    <div class="col-3"><img alt="image" src="oss.htmlpage.cn/editor/images/img_round.svg" class="img-fluid" /></div>
+                    <div class="col-9">
+                      <h3> <strong>有意见提出🍻</strong> </h3>
+                      <p>做这个很花时间，所以请大家提出具体的意见和建议。</p>
+                      <p>如果你想修改文字或图片，请把你想要的内容和素材发给我，我会尽快处理。</p>
+                      <p>如果你想改变整体的风格或布局，请把你的设计方案或效果图发给我，我会根据实际情况进行调整。</p>
+                      <p>请不要提出太大的改动或模糊的要求，这样会增加我的工作难度和时间成本。</p>
+                    </div>
+                  </div>
+                  <h1></h1>
+                </div>
+                <div class="col-12 col-md-4">
+                  <div class="row">
+                    <div class="col-3"><img alt="image" src="oss.htmlpage.cn/editor/images/img_round.svg" class="img-fluid" /></div>
+                    <div class="col-9">
+                      <h3><strong>保持克制🎍独立开发不易</strong> </h3>
+                      <p>能做，但很费时间，所以不做。少改动😵‍💫</p>
+                      <p>我知道你可能有很多想法和建议，但是作为一个独立开发者，我有很多限制和挑战。我需要平衡时间、精力和资源，所以我不能满足所有的需求和期望。</p>
+                      <p>我希望你能理解我的困难，支持我的努力，尊重我的选择。我会尽力做好我的工作，提供一个高质量的产品给你。谢谢你的配合和信任。</p><br /><br />
+                      <p></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="row">
+                  <div class="col-lg-6 align-self-center">
+                    <div data-wow-duration="1s" data-wow-delay="1s" class="left-content show-up header-text wow fadeInLeft">
+                      <div class="row">
+                        <div class="col-lg-12">
+                          <h6>Project Description</h6>
+                          <h2>项目介绍</h2>
+                          <p id="ictfi3" class="c1731">
+                          <p id="i7upjh" class="c25565">“四岸三方”项目是一项基于区块链的公益项目🌱，旨在通过小程序📱和新媒体📺推广农产品🍎和乡村旅游🏞️。利用区块链技术💻提高农产品溯源效率，采用线上线下结合的方式销售农产品和文创产品🎨。同时开展线下研学活动🎓，借助项目小程序在省内推广。项目拓展小程序功能，结合绍兴自然和人文景观🌄，实现高质量农业🌾、宜居乡村🏡、富裕农民💰，并帮助绍兴农村在竞争中发展💪。</p>
+                          <p id="ivvab4" class="c25583">如果你也热爱此话题❤️，有自己的提案或初步进展👍，联系我们📞。我们非常期待能与有执行力的伙伴们一起完成这个充满挑战的项目🚀！ 戳下方我们的联系方式传递您联系方式以便详细了解更多互动方式。我们期待与您会面交流🤝，一起窃窃私语😉并铺垫下更多远大prospect🌟！</p>
+                          </p>
+                        </div>
+                        <div class="col-lg-12">
+                          <div class="border-first-button scroll-to-section"><a href="#contact">联系我们</a></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div data-wow-duration="1s" data-wow-delay="0.5s" class="right-image wow fadeInRight"><img src="template-1253409072.cos.ap-guangzhou.myqcloud.com/html-template/htmlpage_568_digimedia/assets/images/slider-dec-v2.png" alt="" /></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="services" class="services section">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-12">
+                <div data-wow-duration="1s" data-wow-delay="0.5s" class="section-heading wow fadeInDown">
+                  <h6>staff</h6>
+                  <h4>成员介绍</h4>
+                  <div class="line-dec"></div>
+                </div>
+              </div>
+              <div class="col-lg-12">
+                <div class="naccs">
+                  <div class="grid">
+                    <div class="row">
+                      <div class="col-lg-12"></div>
+                      <div class="col-lg-12">
+                        <ul class="nacc">
+                          <li>
+                            <div>
+                              <div class="thumb"></div>
+                            </div>
+                          </li>
+                          <li>
+                            <div>
+                              <div class="thumb"></div>
+                            </div>
+                          </li>
+                          <li>
+                            <div>
+                              <div class="thumb">
+                                <div class="row">
+                                  <div class="col-lg-6 align-self-center">
+                                    <div class="left-text">
+                                      <h4>Online Shopping &amp; Tracking ID</h4>
+                                    </div>
+                                  </div>
+                                  <div class="col-lg-6 align-self-center">
+                                    <div class="right-image"></div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                          <li>
+                            <div>
+                              <div class="thumb"></div>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <link rel="stylesheet" href="template-1253409072.cos.ap-guangzhou.myqcloud.com/bootstrap/css/bootstrap.min.css" />
+        <section data-block-type="contents" data-id="10" draggable="true" id="i2rfp9" class="fdb-block pb-0 fp-active c6184">
+          <div class="container">
+            <div class="row text-left justify-content-end">
+              <div class="fdb-box br-0">
+                <div><br /><br />
+                  <link rel="stylesheet" href="template-1253409072.cos.ap-guangzhou.myqcloud.com/vip-tpl/assets/css/plugins.css" />
+                  <link rel="stylesheet" href="template-1253409072.cos.ap-guangzhou.myqcloud.com/vip-tpl/assets/css/style.css" />
+                  <section class="wrapper">
+                    <div class="container pt-12 pt-md-14 pb-14 pb-md-16">
+                      <div class="row gx-md-8 gx-xl-12 gy-6 align-items-center">
+                        <div class="col-md-8 col-lg-6 mx-auto">
+                          <div class="img-mask mask-1"><img src="template-1253409072.cos.ap-guangzhou.myqcloud.com/vip-tpl/assets/img/photos/about29.jpg" alt="" /></div>
+                        </div>
+                        <!--/column -->
+                        <div class="col-lg-6">
+                          <div>
+                            <p id="iqyty8" class="c20181">以“链”为渠,科技“兴“农</p>
+                            <p id="izg56d" class="c20199">李晓明 张小红 王大明</p><br />
+                            <p id="iirpli" class="c20226"> 指导老师 王老师</p><br />
+                            <p id="ivoltg" class="c20253"> 项目概念 李晓明 行业背景和市场分析 张小红 产品与服务 王大明 技术负责 程同学
+                              <span></span>
+                            </p>
+                            <p id="ib7oso" class="c20280"> 美术设计 赵老师 项目营销 李晓明 创业团队 张小红 财务预测与规划 王大明 风险分析 陈老师 </p>
+                            <p id="ib6odn" class="c20298">区块链助农,让农产品更有价值,让消费者更放心。</p>
+                            <p id="ipafns" class="c20316">区块链助农,连接田间地头和餐桌,实现农业绿色发展。</p>
+                            <p id="ihr1bp" class="c20334">制作 程同学</p>
+                            <p id="igxn6p" class="c20352"> 区块链助农,打造数字乡村,促进乡村振兴。
+                              <br /> 区块链助农,创新农业模式,推动农业现代化。
+                            </p>
+                            <p id="icpeyf" class="c20388">配给 绍兴事业部    </p>
+                            <p id="i5d0j4" class="c20406">合作伙伴 XXXXXXX</p>
+                            <p id="inybok" class="c20424">©2023 四岸三方团队</p>
+                          </div>
+                          <div class="row counter-wrapper gy-6">
+                            <div class="col-md-4"></div>
+                            <!--/column -->
+                            <div class="col-md-4"></div>
+                            <!--/column -->
+                            <div class="col-md-4"></div>
+                            <!--/column -->
+                          </div>
+                          <!--/.row -->
+                        </div>
+                        <!--/column -->
+                      </div><!-- /.row -->
+                      <!-- /.row -->
+                    </div><!-- /.container -->
+                  </section><!-- /section -->
+                  <script src="js/plugins.js"></script>
+                  <script src="js/theme.js"></script>
+                </div>
+                <p class="text-h3 mt-4"></p>
+              </div>
+              <div class="col-12 col-md-6 col-xl-4"></div>
+            </div>
+          </div>
+        </section>
+        <div id="contact" class="contact-us section">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-6 offset-lg-3">
+                <div data-wow-duration="1s" data-wow-delay="0.5s" class="section-heading wow fadeIn">
+                  <h6>Contact Us</h6>
+                  <h4>联系我们</h4>
+                  <div class="line-dec"></div>
+                </div>
+                <div class="fill-form">
+                  <div class="row">
+                    <div class="col-lg-4">
+                      <div class="info-post">
+                        <div class="icon"><img src="template-1253409072.cos.ap-guangzhou.myqcloud.com/html-template/htmlpage_568_digimedia/assets/images/phone-icon.png" alt="" /><a href="#">1313182093</a></div>
+                      </div>
+                    </div>
+                    <div class="col-lg-4">
+                      <div class="info-post">
+                        <div class="icon"><img src="template-1253409072.cos.ap-guangzhou.myqcloud.com/html-template/htmlpage_568_digimedia/assets/images/email-icon.png" alt="" /><a href="#">our@email.com</a></div>
+                      </div>
+                    </div>
+                    <div class="col-lg-4">
+                      <div class="info-post">
+                        <div class="icon"><img src="template-1253409072.cos.ap-guangzhou.myqcloud.com/html-template/htmlpage_568_digimedia/assets/images/location-icon.png" alt="" /><a href="#">地址地址</a></div>
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <fieldset></fieldset>
+                      <fieldset></fieldset>
+                      <fieldset></fieldset>
+                    </div>
+                    <div class="col-lg-6">
+                      <fieldset></fieldset>
+                      <fieldset></fieldset>
+                      <fieldset></fieldset>
+                    </div>
+                    <div class="col-lg-6">
+                      <fieldset></fieldset>
+                    </div>
+                    <div class="col-lg-12">
+                      <fieldset></fieldset>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div data-wow-duration="0.5s" data-wow-delay="0.25s" class="col-lg-12 wow fadeInUp">
+                <form id="contact-2" action="" method="post">
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <div class="contact-dec"><img src="template-1253409072.cos.ap-guangzhou.myqcloud.com/html-template/htmlpage_568_digimedia/assets/images/contact-dec-v2.png" alt="" /></div>
+                    </div>
+                    <div class="col-lg-7"></div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>  <footer data-block-type="footers" data-id="6" class="fdb-block footer-large fp-active">
+          <div class="container">
+            <div class="row align-items-top">
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3 text-sm-left">
+                <span id="i0z074" class="c30616"></span>
+                <br class="Apple-interchange-newline"/>
+                <nav class="nav flex-column">
+                </nav>
+              </div>
+              <div class="row">
+                <div class="cell">
+                  <div class="mihoyo-copyright c33461">
+                    <br/>
+                    <img alt="页脚logo.png" src="image/页脚logo.png" id="ip3jgc" class="c30688"/>
+                <span class="split-line c32672">|</span>
+                <img src="http://127.0.0.1:5501/image/%E4%BA%8C%E7%BB%B4%E7%A0%81(temp).png" class="c30609"/>
+              </div>
+            </div>
+            <div class="cell">
+              <div class="col-lg-3 mt-5 mt-sm-0 text-sm-left">
+                <h3>
+                </h3>
+                <nav class="nav flex-column">
+                  <a href="index.html" class="nav-link"></a>
+                  <a href="index.html" class="nav-link"></a>
+                </nav>
+                <span id="irorxo" class="c32516"></span>
+              </div>
+            
+              <div id="ieoujl" class="mihoyo-copyright c33461">
+                <br/>
+                <a href="index.html">关于我们 |  联系我们 | 加入我们  </a>
+                <br>
+                <a href="index.html"><a href="http://127.0.0.1:5501/index.html#" target="_blank">网站备案号</a></a>
+                <a href="index.html" class="nav-link"><span id="i8m7vw" class="c38434">区块链助农,连接田间地头和餐桌,实现农业数字发展。</span><br id="it3wwk" draggable="true" class="c38452"/><span id="iosorl" class="c38461">区块链助农,打造数字乡村,促进乡村振兴。</span></a>
+                <a href="http://127.0.0.1:5501/index.html#" target="_blank">填网站备案信息</a>
+                <span id="ipxopi" class="split-line c32672">|</span>
+                <span id="iljrqo" class="c32690">填 增值电信业务经营许可证 可能不需要</span>
+                <br><a href="">亲爱的市民朋友，温州警方反诈劝阻电话“96110”系专门针对避免您财产被骗受损而设，请您一旦收到来电，立即接听。</a>
+                <br><a href="">网站 制作 程同学</a>
+                <br><a href="">©2023 四岸三方团队 版权所有</a>
+                
+              </div>
+            </div>
+          </div>
+          <div id="iljrqo" class="c32690">
+            <br/>
+            <br/>
+          </div>
+          <div id="ivxnzf" class="c33571">
+            <span ><br><br></span>
+          </div>
+          <div class="c35974">
+          </div>
+         
+        <span id="izqtoj" class="c33171"></span>
+        <div class="row mt-3">
+          <div>
+            <a id="ilptfc-2" draggable="false" href="index.html/"></a>
+          </div>
+        </div>
       </div>
-      <div class="footer-filing-content">                    
-        <a href="#" target="_blank">网站备案号 </a>              
+    </footer>
+    
+   
+        <script src="template-1253409072.cos.ap-guangzhou.myqcloud.com/html-template/htmlpage_568_digimedia/vendor/jquery/jquery.min.js"></script>
+        <script src="template-1253409072.cos.ap-guangzhou.myqcloud.com/html-template/htmlpage_568_digimedia/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="template-1253409072.cos.ap-guangzhou.myqcloud.com/html-template/htmlpage_568_digimedia/assets/js/owl-carousel.js"></script>
+        <script src="template-1253409072.cos.ap-guangzhou.myqcloud.com/html-template/htmlpage_568_digimedia/assets/js/animation.js"></script>
+        <script src="template-1253409072.cos.ap-guangzhou.myqcloud.com/html-template/htmlpage_568_digimedia/assets/js/imagesloaded.js"></script>
+        <script src="template-1253409072.cos.ap-guangzhou.myqcloud.com/html-template/htmlpage_568_digimedia/assets/js/custom.js"></script>
+        <script type="text/javascript" src="api.map.baidu.com/api?type=webgl&v=1.0&ak=E7Alnx3LcTI1QE3dHSxmlzGXI6RzBUUv"></script>
+        <script type="text/javascript">
+          setTimeout(() => {
+            // GL版命名空间为BMapGL
+            // 按住鼠标右键，修改倾斜角和角度
+            if (window.BMapGL) {
+              var map = new BMapGL.Map("map"); // 创建Map实例
+              map.centerAndZoom(new BMapGL.Point(116.280190, 40.049191), 19); // 初始化地图,设置中心点坐标和地图级别
+              map.enableScrollWheelZoom(true); //开启鼠标滚轮缩放
+              map.setHeading(64.5);
+              map.setTilt(73);
+            }
+          }, 2000)
+        </script>
       </div>
-      <div class="footer-filing-tip">              
-        <span>网站 制作 程同学</span>        
-      </div>
-      <div class="footer-tip">        
-        亲爱的市民朋友，温州警方反诈劝阻电话“96110”系专门针对避免您财产被骗受损而设，请您一旦收到来电，立即接听。      
-      </div>
-      <div class="mihoyo-copyright">©2023 四岸三方团队 版权所有</div>
-      <div class="footer-icon">
-        <a href="#" target="_blank" style="background-image: url(images/shiming.png);"></a>
-        <a href="#" target="_blank" style="background-image: url(images/jubao.png);"></a>
-        <a href="#" target="_blank" style="background-image: url(images/youhai.png);"></a>
-        <a href="#" target="_blank" style="background-image: url(images/culture.png);"></a>
-        <a href="#" target="_blank" style="background-image: url(images/e110.png);"></a>
-        <a href="#" target="_blank" style="background-image: url(images/zhizhao.png);"></a>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- 尾部内容模块 end -->
-</footer>
-<!-- 尾部模块 end-->
-</div>
-</body>
-</html>
+    </body>
+  </body>
+  <html>
