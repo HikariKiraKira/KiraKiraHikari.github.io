@@ -3618,6 +3618,7 @@ textarea.form-control-lg {
   list-style: none;
 }
 
+
 .nav-link {
   display: block;
   padding: var(--bs-nav-link-padding-y) var(--bs-nav-link-padding-x);
@@ -3725,27 +3726,28 @@ textarea.form-control-lg {
   display: block;
 }
 
+/* 整体导航栏样式 */
 .navbar {
-  --bs-navbar-padding-x: 0;
-  --bs-navbar-padding-y: 0.5rem;
-  --bs-navbar-color: rgba(0, 0, 0, 0.55);
-  --bs-navbar-hover-color: rgba(0, 0, 0, 0.7);
-  --bs-navbar-disabled-color: rgba(0, 0, 0, 0.3);
-  --bs-navbar-active-color: rgba(0, 0, 0, 0.9);
-  --bs-navbar-brand-padding-y: 0.3125rem;
-  --bs-navbar-brand-margin-end: 1rem;
-  --bs-navbar-brand-font-size: 1.25rem;
-  --bs-navbar-brand-color: rgba(0, 0, 0, 0.9);
-  --bs-navbar-brand-hover-color: rgba(0, 0, 0, 0.9);
-  --bs-navbar-nav-link-padding-x: 0.5rem;
-  --bs-navbar-toggler-padding-y: 0.25rem;
-  --bs-navbar-toggler-padding-x: 0.75rem;
-  --bs-navbar-toggler-font-size: 1.25rem;
-  --bs-navbar-toggler-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-  --bs-navbar-toggler-border-color: rgba(0, 0, 0, 0.1);
-  --bs-navbar-toggler-border-radius: 0.375rem;
-  --bs-navbar-toggler-focus-width: 0.25rem;
-  --bs-navbar-toggler-transition: box-shadow 0.15s ease-in-out;
+  --bs-navbar-padding-x: 0; /* 水平方向内边距 */
+  --bs-navbar-padding-y: 0.5rem; /* 垂直方向内边距 */
+  --bs-navbar-color: rgba(0, 0, 0, 0.55); /* 导航栏默认颜色 */
+  --bs-navbar-hover-color: rgba(0, 0, 0, 0.7); /* 导航栏悬停颜色 */
+  --bs-navbar-disabled-color: rgba(0, 0, 0, 0.3); /* 导航栏禁用状态颜色 */
+  --bs-navbar-active-color: rgba(0, 0, 0, 0.9); /* 导航栏激活状态颜色 */
+  --bs-navbar-brand-padding-y: 0.3125rem; /* 导航栏品牌垂直方向内边距 */
+  --bs-navbar-brand-margin-end: 1rem; /* 导航栏品牌右侧外边距 */
+  --bs-navbar-brand-font-size: 1.25rem; /* 导航栏品牌字体大小 */
+  --bs-navbar-brand-color: rgba(0, 0, 0, 0.9); /* 导航栏品牌默认颜色 */
+  --bs-navbar-brand-hover-color: rgba(0, 0, 0, 0.9); /* 导航栏品牌悬停颜色 */
+  --bs-navbar-nav-link-padding-x: 0.5rem; /* 导航栏链接水平方向内边距 */
+  --bs-navbar-toggler-padding-y: 0.25rem; /* 导航栏切换按钮垂直方向内边距 */
+  --bs-navbar-toggler-padding-x: 0.75rem; /* 导航栏切换按钮水平方向内边距 */
+  --bs-navbar-toggler-font-size: 1.25rem; /* 导航栏切换按钮字体大小 */
+  --bs-navbar-toggler-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e"); /* 导航栏切换按钮图标背景 */
+  --bs-navbar-toggler-border-color: rgba(0, 0, 0, 0.1); /* 导航栏切换按钮边框颜色 */
+  --bs-navbar-toggler-border-radius: 0.375rem; /* 导航栏切换按钮边框圆角 */
+  --bs-navbar-toggler-focus-width: 0.25rem; /* 导航栏切换按钮聚焦时的阴影宽度 */
+  --bs-navbar-toggler-transition: box-shadow 0.15s ease-in-out; /* 导航栏切换按钮过渡效果 */
   position: relative;
   display: flex;
   flex-wrap: wrap;
@@ -3753,6 +3755,8 @@ textarea.form-control-lg {
   justify-content: space-between;
   padding: var(--bs-navbar-padding-y) var(--bs-navbar-padding-x);
 }
+
+/* 导航栏中的容器样式 */
 .navbar > .container,
 .navbar > .container-fluid,
 .navbar > .container-sm,
@@ -3765,17 +3769,21 @@ textarea.form-control-lg {
   align-items: center;
   justify-content: space-between;
 }
+
+/* 导航栏品牌样式 */
 .navbar-brand {
-  padding-top: var(--bs-navbar-brand-padding-y);
-  padding-bottom: var(--bs-navbar-brand-padding-y);
-  margin-right: var(--bs-navbar-brand-margin-end);
-  font-size: var(--bs-navbar-brand-font-size);
-  color: var(--bs-navbar-brand-color);
+  padding-top: var(--bs-navbar-brand-padding-y); /* 品牌上方内边距 */
+  padding-bottom: var(--bs-navbar-brand-padding-y); /* 品牌下方内边距 */
+  margin-right: var(--bs-navbar-brand-margin-end); /* 品牌右侧外边距 */
+  font-size: var(--bs-navbar-brand-font-size); /* 品牌字体大小 */
+  color: var(--bs-navbar-brand-color); /* 品牌默认颜色 */
   text-decoration: none;
   white-space: nowrap;
 }
+
+/* 导航栏品牌悬停和聚焦时的样式 */
 .navbar-brand:hover, .navbar-brand:focus {
-  color: var(--bs-navbar-brand-hover-color);
+  color: var(--bs-navbar-brand-hover-color); /* 品牌悬停和聚焦时的颜色 */
 }
 
 .navbar-nav {
@@ -10865,7 +10873,7 @@ hr.divider-light {
 
 #mainNav {
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-  background-color: #fff;
+  background:linear-gradient(to right,rgb(173, 225, 247),rgb(220, 232, 255));
   transition: background-color 0.2s ease;
 }
 #mainNav .navbar-brand {
@@ -10991,4 +10999,8 @@ header.masthead h1, header.masthead .h1 {
 }
 #portfolio .container-fluid .portfolio-box:hover .portfolio-box-caption, #portfolio .container-sm .portfolio-box:hover .portfolio-box-caption, #portfolio .container-md .portfolio-box:hover .portfolio-box-caption, #portfolio .container-lg .portfolio-box:hover .portfolio-box-caption, #portfolio .container-xl .portfolio-box:hover .portfolio-box-caption, #portfolio .container-xxl .portfolio-box:hover .portfolio-box-caption {
   opacity: 1;
+}
+
+body {
+  background: linear-gradient(to right, rgb(220, 232, 255), rgb(173, 225, 247));
 }
