@@ -11040,3 +11040,11 @@ header.masthead .h1 {
 body {
   background: linear-gradient(to right, rgb(220, 232, 255), rgb(173, 225, 247));
 }
+.custom-animation {
+  transition: transform 0.5s ease-in-out, filter 0.5s ease-in-out;
+}
+
+.custom-animation:hover {
+  transform: scale(1.1); /* 缩放效果 */
+  filter: brightness(70%); /* 变暗效果 */
+}
