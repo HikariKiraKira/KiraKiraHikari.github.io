@@ -10897,12 +10897,12 @@ hr.divider-light {
 /* 导航栏链接悬停和激活效果 */
 #mainNav .navbar-nav .nav-item .nav-link:hover,
 #mainNav .navbar-nav .nav-item .nav-link:active {
-  color: #f4623a;
+  color: rgb(27, 109, 193);
 }
 
 /* 导航栏激活状态 */
 #mainNav .navbar-nav .nav-item .nav-link.active {
-  color: #f4623a !important;
+  color: #f4623a  !important;
 }
 
 /* 大屏幕时导航栏样式调整 */
